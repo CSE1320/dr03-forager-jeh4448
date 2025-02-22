@@ -4,6 +4,86 @@ const dummyData = {
     status: "success",
 };
 
+const pills = [
+    // Tags
+    {
+        pillText: "Favorites",
+        pillFilterType: 'tags',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "Recent",
+        pillFilterType: 'tags',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+
+    // Regions
+    {
+        pillText: "Texas",
+        pillFilterType: 'regions',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "North America",
+        pillFilterType: 'regions',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "South America",
+        pillFilterType: 'regions',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "Asia",
+        pillFilterType: 'regions',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "Europe",
+        pillFilterType: 'regions',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "Africa",
+        pillFilterType: 'regions',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+
+    // Categories
+    {
+        pillText: "Poisonous",
+        pillFilterType: 'categories',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "Medicinal",
+        pillFilterType: 'categories',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "Mythical",
+        pillFilterType: 'categories',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    },
+    {
+        pillText: "Good for Broths",
+        pillFilterType: 'categories',
+        pillSelected: 'unselected',
+        pillColor: 'gray'
+    }
+];
+
 const warningMessage = {
     header: "warning",
     icon: "/icons/icon_warning.svg",

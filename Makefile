@@ -2,9 +2,9 @@
 ####################### Makefile Template ##############################
 ########################################################################
 # Student settings
-NAME = YOURNAME
-SID = YOURSID
-EMAIL = YOURUTAEMAIL
+NAME = Joshua Harris
+SID = 1002084448
+EMAIL = jeh4448@mavs.uta.edu
 SEMESTER = SPRING2025
 PROJECT=PROJ03
  

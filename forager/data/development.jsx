@@ -94,4 +94,4 @@ const warningMessage = {
 // export default dummyData; // Requires import dummyData from './data/development.js';
 
 // More than one export.
-export {warningMessage, dummyData}; // Requires import {warningMessage, dummyData} from './data/development.js';
+export {pills}; // Requires import {warningMessage, dummyData} from './data/development.js';

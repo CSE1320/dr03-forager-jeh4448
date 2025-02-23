@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 
 
@@ -9,16 +10,20 @@ const Pill = ({ pillText, pillFilterType, pillSelected, pillColor }) => {
         borderRadius: '16px',
         margin: '5px',
         color: pillSelected ? '#fff' : '#000',
-        backgroundColor: pillSelected ? pillColor.selected : pillColor.default,
+        backgroundColor: pillSelected ? 'green' : 'gray',
         cursor: 'pointer',
         transition: 'background-color 0.3s ease',
-        border: `1px solid ${pillSelected ? pillColor.selected : pillColor.default}`,
+        // border: `1px solid ${pillSelected ? pillColor.selected : pillColor.default}`,
+        border: `1px solid ${pillColor}`,
     };
 
     return (
-        <div style={pillStyle} onClick={() => console.log(`Selected: ${pillFilterType}`)}>
-          {pillText}
-        </div>
-      );
+      <div 
+        style={pillStyle} 
+        onClick={() => console.log(`Selected: ${pillFilterType}`)}
+      >
+        {pillText}
+      </div>
+    );
 }
 export default Pill;

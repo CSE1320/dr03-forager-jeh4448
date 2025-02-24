@@ -6,9 +6,9 @@ const dummyData = {
 
 function getPillColor(pillSelected) {
     if (pillSelected === false) {
-        return 'grey';
+        return '#D9D9D9';
     } else if (pillSelected === true) {
-        return 'green';
+        return '#579076';
     } else {
         return 'red'; // error checking purposes/ ineffective
     }

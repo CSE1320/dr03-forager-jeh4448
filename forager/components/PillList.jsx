@@ -16,6 +16,7 @@ export default function PillList () {
     // };
     return (
         <div style={{ backgroundColor: 'white' }}>
+        <h1 style={{ color: 'black', fontWeight: 'bold', textAlign: 'center' }}>Filters</h1>
         <ul>
                 <h1 className="bold-black-title">Tags</h1>
                 <li>

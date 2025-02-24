@@ -3,3 +3,8 @@ body, html{
   width: 100%;
   height: 100%;
 }
+
+.bold-black-title {
+  font-weight: bold;
+  color: black;
+}

@@ -4,31 +4,32 @@ const dummyData = {
     status: "success",
 };
 
+function getPillColor(pillSelected) {
+    if (pillSelected === false) {
+        return 'grey';
+    } else if (pillSelected === true) {
+        return 'green';
+    } else {
+        return 'red'; // error checking purposes/ ineffective
+    }
+}
+
 const pills = [
     // Tags
     {
         pillText: "Favorites",
         pillFilterType: 'tags',
-        pillSelected: false,
-        pillColor: () => {
-            if (this.pillSelected === false) {
-                return 'grey';
-            } else {
-                return 'green';
-            }
+        pillSelected: true,
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
-    },    
+    },
     {
         pillText: "Recent",
         pillFilterType: 'tags',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
 
@@ -37,78 +38,48 @@ const pills = [
         pillText: "Texas",
         pillFilterType: 'regions',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
     {
         pillText: "North America",
         pillFilterType: 'regions',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
     {
         pillText: "South America",
         pillFilterType: 'regions',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
     {
         pillText: "Asia",
         pillFilterType: 'regions',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
     {
         pillText: "Europe",
         pillFilterType: 'regions',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
     {
         pillText: "Africa",
         pillFilterType: 'regions',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
 
@@ -117,52 +88,32 @@ const pills = [
         pillText: "Poisonous",
         pillFilterType: 'categories',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
     {
         pillText: "Medicinal",
         pillFilterType: 'categories',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
     {
         pillText: "Mythical",
         pillFilterType: 'categories',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     },
     {
         pillText: "Good for Broths",
         pillFilterType: 'categories',
         pillSelected: false,
-        pillColor: () => {
-            if(this.pillSelected === false){
-                return 'grey'
-            }
-            else{
-                return 'green'
-            }
+        pillColor: function() {
+            return getPillColor(this.pillSelected)
         }
     }
 ];

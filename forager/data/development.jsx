@@ -9,78 +9,161 @@ const pills = [
     {
         pillText: "Favorites",
         pillFilterType: 'tags',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
-    },
+        pillSelected: false,
+        pillColor: () => {
+            if (this.pillSelected === false) {
+                return 'grey';
+            } else {
+                return 'green';
+            }
+        }
+    },    
     {
         pillText: "Recent",
         pillFilterType: 'tags',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
 
     // Regions
     {
         pillText: "Texas",
         pillFilterType: 'regions',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
     {
         pillText: "North America",
         pillFilterType: 'regions',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
     {
         pillText: "South America",
         pillFilterType: 'regions',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
     {
         pillText: "Asia",
         pillFilterType: 'regions',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
     {
         pillText: "Europe",
         pillFilterType: 'regions',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
     {
         pillText: "Africa",
         pillFilterType: 'regions',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
 
     // Categories
     {
         pillText: "Poisonous",
         pillFilterType: 'categories',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
     {
         pillText: "Medicinal",
         pillFilterType: 'categories',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
     {
         pillText: "Mythical",
         pillFilterType: 'categories',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     },
     {
         pillText: "Good for Broths",
         pillFilterType: 'categories',
-        pillSelected: 'unselected',
-        pillColor: 'gray'
+        pillSelected: false,
+        pillColor: () => {
+            if(this.pillSelected === false){
+                return 'grey'
+            }
+            else{
+                return 'green'
+            }
+        }
     }
 ];
 

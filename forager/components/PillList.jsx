@@ -25,7 +25,7 @@ export default function PillList () {
                     pillText={pill.pillText}
                     pillFilterType={pill.filterType}
                     //pillSelected={selectedPill === pill.filterType}
-                    pillColor={pill.color}
+                    pillColor={pill.pillColor()}
                     //onClick={() => handlePillClick(pill.filterType)} // Optional if you want to perform an action on click
                 />
             ))}
@@ -38,7 +38,7 @@ export default function PillList () {
                     pillText={pill.pillText}
                     pillFilterType={pill.filterType}
                     //pillSelected={selectedPill === pill.filterType}
-                    pillColor={pill.color}
+                    pillColor={pill.pillColor()}
                     //onClick={() => handlePillClick(pill.filterType)} // Optional if you want to perform an action on click
                 />
             ))}
@@ -51,7 +51,7 @@ export default function PillList () {
                     pillText={pill.pillText}
                     pillFilterType={pill.filterType}
                     //pillSelected={selectedPill === pill.filterType}
-                    pillColor={pill.color}
+                    pillColor={pill.pillColor()}
                     //onClick={() => handlePillClick(pill.filterType)} // Optional if you want to perform an action on click
                 />
               ))}

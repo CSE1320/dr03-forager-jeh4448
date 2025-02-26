@@ -5,6 +5,7 @@ import Pill from "./Pill";
 import { pills } from "@/data/development";
 import "../styles/globals.css";
 import background from "../app/dashboard/Rectangle.png"
+import exit from "../app/dashboard/ExitX.png"
 
 export default function PillList() {
     const filtersTags = pills.filter(pill => pill.pillFilterType === 'tags');
@@ -24,8 +25,8 @@ export default function PillList() {
             [pillText]: !prevState[pillText] // Toggle the selected state
         }));
     };
-    
-    
+
+
 
     return (
         <div style={{ 
@@ -35,10 +36,23 @@ export default function PillList() {
             height: '100vh', // Adjust height as necessary
             //padding: '20px', // Optional padding
             marginTop: '100px',
-            marginBottom: '2m',
+            marginBottom: '10px',
             marginLeft: '10px',
             marginRight: '10px',
+            position: 'relative',
         }}>
+            <img 
+                src={exit} 
+                alt="Exit Button" 
+                style={{
+                    position: 'absolute', // Position the image absolutely
+                    top: '10px', // Adjust as necessary
+                    right: '10px', // Adjust as necessary
+                    width: '40px', // Adjust size as necessary
+                    height: '40px', // Adjust size as necessary
+                    filter: 'brightness(0.5)',
+                }} 
+            />
             <h1 style={{ color: 'black', fontWeight: 'bold', textAlign: 'center' }}>FILTERS</h1>
             <h1 className="bold-black-title">Tags</h1>
             <ul>

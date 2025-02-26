@@ -33,13 +33,14 @@ export default function PillList() {
             backgroundImage: `url(${background.src})`, // Use background.src for the image URL
             backgroundSize: 'cover', // Cover the entire area
             backgroundPosition: 'center', // Center the background image
-            height: '100vh', // Adjust height as necessary
+            height: '50vh', // Adjust height as necessary
             //padding: '20px', // Optional padding
-            marginTop: '100px',
-            marginBottom: '10px',
-            marginLeft: '10px',
-            marginRight: '10px',
+            marginTop: '0px',
+            // marginBottom: '10px',
+            // marginLeft: '10px',
+            // marginRight: '10px',
             position: 'relative',
+            bottom:'0',
         }}>
             <img 
                 src={exit} 
@@ -49,7 +50,7 @@ export default function PillList() {
                     top: '10px', // Adjust as necessary
                     right: '10px', // Adjust as necessary
                     width: '40px', // Adjust size as necessary
-                    height: '40px', // Adjust size as necessary
+                    height: '80px', // Adjust size as necessary
                     filter: 'brightness(0.5)',
                 }} 
             />

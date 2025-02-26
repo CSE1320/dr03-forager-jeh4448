@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Pill from "./Pill";
 import { pills } from "@/data/development";
 import "../styles/globals.css";
+import background from "../app/dashboard/Rectangle.png"
 
 export default function PillList() {
     const filtersTags = pills.filter(pill => pill.pillFilterType === 'tags');
@@ -23,9 +24,21 @@ export default function PillList() {
             [pillText]: !prevState[pillText] // Toggle the selected state
         }));
     };
+    
+    
 
     return (
-        <div style={{ backgroundColor: '#F2F2F2' }}>
+        <div style={{ 
+            backgroundImage: `url(${background.src})`, // Use background.src for the image URL
+            backgroundSize: 'cover', // Cover the entire area
+            backgroundPosition: 'center', // Center the background image
+            height: '100vh', // Adjust height as necessary
+            //padding: '20px', // Optional padding
+            marginTop: '100px',
+            marginBottom: '2m',
+            marginLeft: '10px',
+            marginRight: '10px',
+        }}>
             <h1 style={{ color: 'black', fontWeight: 'bold', textAlign: 'center' }}>FILTERS</h1>
             <h1 className="bold-black-title">Tags</h1>
             <ul>

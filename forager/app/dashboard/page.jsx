@@ -34,13 +34,14 @@ export default function DashboardPage() {
       position: 'relative',
     }}>
       <NavBar />
-      <SearchBar />
-      {/* Pass the state, function, and button style as props to FilterSettings */}
       <FilterSettings 
         isPillListVisible={isPillListVisible} 
         togglePillList={togglePillList} 
         buttonStyle={filterButtonStyle} // Pass the button style here
       />
+      {!isPillListVisible && <SearchBar />}
+      {/* Pass the state, function, and button style as props to FilterSettings */}
+      
     </div>
   );
 }

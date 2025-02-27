@@ -9,7 +9,7 @@ SEMESTER = SPRING2025
 PROJECT=PROJ03
  
 setup:
-	$ cd /workspaces/dr03-forager-jeh4448/forager/
+	cd /workspaces/dr03-forager-jeh4448/forager/
 
 ####### DO NOT EDIT BELOW THIS LINE!!! #########
 author: 

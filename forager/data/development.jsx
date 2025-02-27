@@ -14,108 +14,33 @@ function getPillColor(pillSelected) {
     }
 }
 
+const createPill = (text, filterType, selected = false) => ({
+    pillText: text,
+    pillFilterType: filterType,
+    pillSelected: selected,
+    pillColor: function() {
+        return getPillColor(this.pillSelected);
+    }
+});
+
 const pills = [
     // Tags
-    {
-        pillText: "Favorites",
-        pillFilterType: 'tags',
-        pillSelected: true,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "Recent",
-        pillFilterType: 'tags',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
+    createPill("Favorites", 'tags', true),
+    createPill("Recent", 'tags'),
 
     // Regions
-    {
-        pillText: "Texas",
-        pillFilterType: 'regions',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "North America",
-        pillFilterType: 'regions',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "South America",
-        pillFilterType: 'regions',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "Asia",
-        pillFilterType: 'regions',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "Europe",
-        pillFilterType: 'regions',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "Africa",
-        pillFilterType: 'regions',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
+    createPill("Texas", 'regions'),
+    createPill("North America", 'regions'),
+    createPill("South America", 'regions'),
+    createPill("Asia", 'regions'),
+    createPill("Europe", 'regions'),
+    createPill("Africa", 'regions'),
 
     // Categories
-    {
-        pillText: "Poisonous",
-        pillFilterType: 'categories',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "Medicinal",
-        pillFilterType: 'categories',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "Mythical",
-        pillFilterType: 'categories',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    },
-    {
-        pillText: "Good for Broths",
-        pillFilterType: 'categories',
-        pillSelected: false,
-        pillColor: function() {
-            return getPillColor(this.pillSelected)
-        }
-    }
+    createPill("Poisonous", 'categories'),
+    createPill("Medicinal", 'categories'),
+    createPill("Mythical", 'categories'),
+    createPill("Good for Broths", 'categories')
 ];
 
 const warningMessage = {

@@ -6,6 +6,8 @@ import NavBar from '../../components/NavBar'; // Adjust the path as necessary
 import dashboard from "./dashboard.png";
 import FilterSettings from '../../components/FilterSetting'; // Adjust the path as necessary
 import SearchBar from "../../components/Search";
+import MushroomCards from '../../components/MushroomList';
+import { mushroomCards } from '../../components/Mushroom';
 
 export default function DashboardPage() {
   const [isPillListVisible, setPillListVisible] = useState(false);
@@ -25,6 +27,8 @@ export default function DashboardPage() {
     outline: 'none', // Remove outline on focus
   };
 
+  const specificMushrooms = mushroomCards
+
   return (
     <div style={{
       backgroundImage: `url(${dashboard.src})`, // Use background.src for the image URL
@@ -34,6 +38,7 @@ export default function DashboardPage() {
       position: 'relative',
     }}>
       <NavBar />
+      <MushroomCards specificMushroomCards={specificMushrooms} />
       <FilterSettings 
         isPillListVisible={isPillListVisible} 
         togglePillList={togglePillList} 

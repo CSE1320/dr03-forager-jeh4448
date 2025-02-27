@@ -1,0 +1,17 @@
+/* MushroomCards.css */
+.mushroom-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping to the next row */
+    justify-content: space-between; /* Aligns items with space between them */
+}
+
+.mushroom-card {
+    flex: 1 1 calc(33.333% - 10px); /* Each card takes up about 1/3 of the row */
+    margin: 5px; /* Adds some space between cards */
+    box-sizing: border-box; /* Ensures padding and margin are included in the total width and height */
+}
+
+.mushroom-card img {
+    width: 100%; /* Makes images responsive */
+    height: auto; /* Maintains aspect ratio */
+}

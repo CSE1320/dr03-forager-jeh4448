@@ -2,7 +2,7 @@ import deathCap from "../public/Death_Cap.png"
 import destroyingAngel from "../public/Destroying_Angel.png"
 import falseDeathCap from "../public/False_Death_Cap.png"
 import paddyStraw from "../public/Paddy_Straw.png"
-import puffball from "../public/Puffballl.png"
+//import puffball from "../public/Puffballl.png"
 
 
 
@@ -150,27 +150,27 @@ const mushroomCards = [
         'A popular edible mushroom cultivated in rice paddies.',
         'Asia'
     ),
-    createMushroomCard(
-        puffball,
-        'Lycoperdon perlatum',
-        'Puffball',
-        { is_toxic: false, is_favorite: true },
-        {
-            diameter: 8.0,
-            gill_color: 'n/a',
-            cap_shape: 'round',
-            cap_color: 'white',
-            cap_texture: 'smooth',
-            gills_type: 'n/a',
-            gills_color: 'n/a',
-            stem_shape: 'none',
-            stem_color: 'n/a',
-            stem_ring: 'absent',
-            habitat: 'grasslands'
-        },
-        'An edible mushroom known for its round shape and spore release.',
-        'Worldwide'
-    )
+    // createMushroomCard(
+    //     puffball,
+    //     'Lycoperdon perlatum',
+    //     'Puffball',
+    //     { is_toxic: false, is_favorite: true },
+    //     {
+    //         diameter: 8.0,
+    //         gill_color: 'n/a',
+    //         cap_shape: 'round',
+    //         cap_color: 'white',
+    //         cap_texture: 'smooth',
+    //         gills_type: 'n/a',
+    //         gills_color: 'n/a',
+    //         stem_shape: 'none',
+    //         stem_color: 'n/a',
+    //         stem_ring: 'absent',
+    //         habitat: 'grasslands'
+    //     },
+    //     'An edible mushroom known for its round shape and spore release.',
+    //     'North America'
+    // )
 ];
 
 export {mushroomCards}

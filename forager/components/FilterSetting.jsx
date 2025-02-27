@@ -5,28 +5,20 @@ import React from 'react';
 import PillList from "./PillList";
 import filterIcon from "../public/icons/FilterIcon.png";
 
-const FilterSettings = ({ isPillListVisible, togglePillList }) => {
+const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle }) => {
   return (
     <div>
       {/* Filter Icon Button */}
       <button 
         onClick={togglePillList} 
-        style={{
-          position: 'absolute',
-          top: '200px', // Adjust top position
-          right: '33px', // Adjust right position
-          background: 'none', // Remove default button background
-          border: 'none', // Remove default button border
-          cursor: 'pointer', // Change cursor to pointer
-          outline: 'none', // Remove outline on focus
-        }}
+        style={buttonStyle} // Use the passed buttonStyle prop
       >
         <img 
           src={filterIcon.src} 
           alt="Filter" 
           style={{
-            width: '30px', // Adjust size as necessary
-            height: '30px', // Adjust size as necessary
+            width: '30px', 
+            height: '30px', 
           }} 
         />
       </button>
@@ -35,13 +27,13 @@ const FilterSettings = ({ isPillListVisible, togglePillList }) => {
       {isPillListVisible && (
         <div style={{
           position: 'absolute',
-          top: '50px', // Adjust this value to control how much space you want at the top
+          top: '50px', 
           left: '0',
           right: '0',
           bottom: '0',
-          background: 'white', // Semi-transparent background for visibility
-          borderRadius: '8px', // Optional: for rounded corners
-          padding: '20px', // Optional: padding for better layout
+          background: 'white', 
+          borderRadius: '8px', 
+          padding: '20px', 
         }}>
           <PillList />
         </div>

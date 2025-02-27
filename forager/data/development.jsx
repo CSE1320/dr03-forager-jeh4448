@@ -1,8 +1,8 @@
 // data/development.js
-const dummyData = {
-    message: "This is dummy data from a config file",
-    status: "success",
-};
+// const dummyData = {
+//     message: "This is dummy data from a config file",
+//     status: "success",
+// };
 
 function getPillColor(pillSelected) {
     if (pillSelected === false) {

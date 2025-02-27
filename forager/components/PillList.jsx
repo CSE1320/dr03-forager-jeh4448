@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Pill from "./Pill";
-import { pills } from "@/data/development";
+import { pills } from "@/data/pill.json";
 import "../styles/globals.css";
 import background from "../app/dashboard/Rectangle.png"
 import exit from "../app/dashboard/ExitX.png"
@@ -46,7 +46,7 @@ export default function PillList() {
                 src={exit} 
                 alt="Exit Button" 
                 style={{
-                    position: 'absolute', // Position the image absolutely
+                    //position: 'absolute', // Position the image absolutely
                     top: '10px', // Adjust as necessary
                     right: '10px', // Adjust as necessary
                     width: '40px', // Adjust size as necessary
@@ -63,7 +63,6 @@ export default function PillList() {
                         pillText={pill.pillText}
                         pillFilterType={pill.filterType}
                         pillSelected={selectedPills[pill.pillText]} // Pass selected state from PillList
-                        pillColor={pill.pillColor()}
                         onPillClick={() => updatePill(pill.pillText)} // Call updatePill on click
                     />
                 ))}
@@ -76,7 +75,6 @@ export default function PillList() {
                         pillText={pill.pillText}
                         pillFilterType={pill.filterType}
                         pillSelected={selectedPills[pill.pillText]}
-                        pillColor={pill.pillColor()}
                         onPillClick={() => updatePill(pill.pillText)}
                     />
                 ))}
@@ -89,7 +87,6 @@ export default function PillList() {
                         pillText={pill.pillText}
                         pillFilterType={pill.filterType}
                         pillSelected={selectedPills[pill.pillText]}
-                        pillColor={pill.pillColor()}
                         onPillClick={() => updatePill(pill.pillText)}
                     />
                 ))}

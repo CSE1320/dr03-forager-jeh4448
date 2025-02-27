@@ -1,3 +1,5 @@
+
+'use client'
 import deathCap from "../public/Death_Cap.png"
 import destroyingAngel from "../public/Destroying_Angel.png"
 import falseDeathCap from "../public/False_Death_Cap.png"
@@ -8,8 +10,8 @@ import paddyStraw from "../public/Paddy_Straw.png"
 
 const createMushroomCard = (
     image,
-    name,
     scientific_name,
+    name,
     features,
     characteristics,
     description,
@@ -64,7 +66,7 @@ const createMushroomCard = (
 
 // console.log(mushroomCard);
 
-
+//not xml, only json, move data to a separate data file
 const mushroomCards = [
     createMushroomCard(
         deathCap,

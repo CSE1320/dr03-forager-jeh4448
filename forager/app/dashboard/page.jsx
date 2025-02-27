@@ -2,9 +2,9 @@
 
 'use client';
 import React, { useState } from 'react';
-import NavBar from '../../components/NavBar'; // Adjust the path as necessary
-import dashboard from "./dashboard.png";
-import FilterSettings from '../../components/FilterSetting'; // Adjust the path as necessary
+import NavBar from '../../components/NavBar'; 
+//import dashboard from "/dashboard.png";
+import FilterSettings from '../../components/FilterSetting'; 
 import SearchBar from "../../components/Search";
 import MushroomCards from '../../components/MushroomList';
 import { mushroomCards } from '../../components/Mushroom';
@@ -27,26 +27,25 @@ export default function DashboardPage() {
     outline: 'none', // Remove outline on focus
   };
 
-  const specificMushrooms = mushroomCards
+  const specificMushrooms = mushroomCards;
 
   return (
     <div style={{
-      backgroundImage: `url(${dashboard.src})`, // Use background.src for the image URL
+      backgroundImage: `url(${"/dashboard.png"})`, // Use background.src for the image URL
       backgroundSize: 'cover', // Cover the entire area
       backgroundPosition: 'center', // Center the background image
       height: '100vh', // Adjust height as necessary
       position: 'relative',
+      padding: '20px', 
     }}>
       <NavBar />
-      <MushroomCards specificMushroomCards={specificMushrooms} />
+      {!isPillListVisible && <SearchBar />}
       <FilterSettings 
         isPillListVisible={isPillListVisible} 
         togglePillList={togglePillList} 
         buttonStyle={filterButtonStyle} // Pass the button style here
       />
-      {!isPillListVisible && <SearchBar />}
-      {/* Pass the state, function, and button style as props to FilterSettings */}
-      
+      <MushroomCards specificMushroomCards={specificMushrooms} />
     </div>
   );
 }

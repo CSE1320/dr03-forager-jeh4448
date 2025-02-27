@@ -2,6 +2,8 @@
 import React from 'react';
 import '../styles/MushroomCards.css'; // Import the CSS file for styling
 
+
+//in ({}), only call Mushrrom call, inside need to call tag of <Mushroom data= mushroom> and ms.map
 const MushroomCards = ({ specificMushroomCards }) => {
     return (
         <div className="mushroom-cards-container">

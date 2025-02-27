@@ -26,7 +26,7 @@ const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle }) => {
       {/* Pill List Overlay */}
       {isPillListVisible && (
         <div style={{
-          position: 'absolute',
+          position: 'absolute', //remove absolute, convert to tailwind
           top: '50px', 
           left: '0',
           right: '0',

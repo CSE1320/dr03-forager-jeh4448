@@ -1,3 +1,11 @@
+import deathCap from "../public/Death_Cap.png"
+import destroyingAngel from "../public/Destroying_Angel.png"
+import falseDeathCap from "../public/False_Death_Cap.png"
+import paddyStraw from "../public/Paddy_Straw.png"
+import puffball from "../public/Puffballl.png"
+
+
+
 const createMushroomCard = (
     image,
     name,
@@ -59,7 +67,7 @@ const createMushroomCard = (
 
 const mushroomCards = [
     createMushroomCard(
-        'death_cap.jpg',
+        deathCap,
         'Amanita phalloides',
         'Death Cap',
         { is_toxic: true, is_favorite: false },
@@ -80,7 +88,7 @@ const mushroomCards = [
         'Europe, North America'
     ),
     createMushroomCard(
-        'destroying_angel.jpg',
+        destroyingAngel,
         'Amanita bisporigera',
         'Destroying Angel',
         { is_toxic: true, is_favorite: false },
@@ -101,7 +109,7 @@ const mushroomCards = [
         'North America'
     ),
     createMushroomCard(
-        'false_death_cap.jpg',
+        falseDeathCap,
         'Amanita citrina',
         'False Death Cap',
         { is_toxic: true, is_favorite: false },
@@ -122,7 +130,7 @@ const mushroomCards = [
         'Europe, North America'
     ),
     createMushroomCard(
-        'paddy_straw.jpg',
+        paddyStraw,
         'Volvariella volvacea',
         'Paddy Straw',
         { is_toxic: false, is_favorite: true },
@@ -143,7 +151,7 @@ const mushroomCards = [
         'Asia'
     ),
     createMushroomCard(
-        'puffball.jpg',
+        puffball,
         'Lycoperdon perlatum',
         'Puffball',
         { is_toxic: false, is_favorite: true },

@@ -1,0 +1,64 @@
+{
+    "pills": [
+        {
+            "pillText": "Favorites",
+            "pillFilterType": "tags",
+            "pillSelected": true
+        },
+        {
+            "pillText": "Recent",
+            "pillFilterType": "tags",
+            "pillSelected": false
+        },
+        {
+            "pillText": "Texas",
+            "pillFilterType": "regions",
+            "pillSelected": false
+        },
+        {
+            "pillText": "North America",
+            "pillFilterType": "regions",
+            "pillSelected": false
+        },
+        {
+            "pillText": "South America",
+            "pillFilterType": "regions",
+            "pillSelected": false
+        },
+        {
+            "pillText": "Asia",
+            "pillFilterType": "regions",
+            "pillSelected": false
+        },
+        {
+            "pillText": "Europe",
+            "pillFilterType": "regions",
+            "pillSelected": false
+        },
+        {
+            "pillText": "Africa",
+            "pillFilterType": "regions",
+            "pillSelected": false
+        },
+        {
+            "pillText": "Poisonous",
+            "pillFilterType": "categories",
+            "pillSelected": false
+        },
+        {
+            "pillText": "Medicinal",
+            "pillFilterType": "categories",
+            "pillSelected": false
+        },
+        {
+            "pillText": "Mythical",
+            "pillFilterType": "categories",
+            "pillSelected": false
+        },
+        {
+            "pillText": "Good for Broths",
+            "pillFilterType": "categories",
+            "pillSelected": false
+        }
+    ]
+}

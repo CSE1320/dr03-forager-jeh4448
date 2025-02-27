@@ -1,0 +1,100 @@
+{
+    "mushroomCards": [
+        {
+            "image": "/Death_Cap.png",
+            "name": "Death Cap",
+            "scientific_name": "Amanita phalloides",
+            "features": {
+                "is_toxic": true,
+                "is_favorite": false
+            },
+            "characteristics": {
+                "diameter": 10.0,
+                "gill_color": "white",
+                "cap_shape": "convex",
+                "cap_color": "greenish",
+                "cap_texture": "smooth",
+                "gills_type": "free",
+                "gills_color": "white",
+                "stem_shape": "cylindrical",
+                "stem_color": "white",
+                "stem_ring": "absent",
+                "habitat": "woodlands"
+            },
+            "description": "One of the most toxic mushrooms, responsible for many fatal poisonings.",
+            "region": "Europe, North America"
+        },
+        {
+            "image": "/Destroying_Angel.png",
+            "name": "Destroying Angel",
+            "scientific_name": "Amanita bisporigera",
+            "features": {
+                "is_toxic": true,
+                "is_favorite": false
+            },
+            "characteristics": {
+                "diameter": 8.0,
+                "gill_color": "white",
+                "cap_shape": "bell-shaped",
+                "cap_color": "white",
+                "cap_texture": "smooth",
+                "gills_type": "free",
+                "gills_color": "white",
+                "stem_shape": "cylindrical",
+                "stem_color": "white",
+                "stem_ring": "present",
+                "habitat": "woodlands"
+            },
+            "description": "A highly toxic mushroom that resembles edible species.",
+            "region": "North America"
+        },
+        {
+            "image": "/False_Death_Cap.png",
+            "name": "False Death Cap",
+            "scientific_name": "Amanita citrina",
+            "features": {
+                "is_toxic": true,
+                "is_favorite": false
+            },
+            "characteristics": {
+                "diameter": 5.0,
+                "gill_color": "white",
+                "cap_shape": "convex",
+                "cap_color": "yellowish",
+                "cap_texture": "smooth",
+                "gills_type": "free",
+                "gills_color": "white",
+                "stem_shape": "cylindrical",
+                "stem_color": "white",
+                "stem_ring": "present",
+                "habitat": "woodlands"
+            },
+            "description": "A toxic mushroom that can be mistaken for edible varieties.",
+            "region": "Europe, North America"
+        },
+        {
+            "image": "/Paddy_Straw.png",
+            "name": "Paddy Straw",
+            "scientific_name": "Volvariella volvacea",
+            "features": {
+                "is_toxic": false,
+                "is_favorite": true
+            },
+            "characteristics": {
+                "diameter": 5.0,
+                "gill_color": "pink",
+                "cap_shape": "convex",
+                "cap_color": "tan",
+                "cap_texture": "smooth",
+                "gills_type": "free",
+                "gills_color": "pink",
+                "stem_shape": "cylindrical",
+                "stem_color": "white",
+                "stem_ring": "absent",
+                "habitat": "rice fields"
+            },
+            "description": "A popular edible mushroom cultivated in rice paddies.",
+            "region": "Asia"
+        }
+    ]
+}

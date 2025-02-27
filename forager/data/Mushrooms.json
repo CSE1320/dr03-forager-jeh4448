@@ -22,7 +22,7 @@
                 "habitat": "woodlands"
             },
             "description": "One of the most toxic mushrooms, responsible for many fatal poisonings.",
-            "region": "Europe, North America"
+            "region": "Europe"
         },
         {
             "image": "/Destroying_Angel.png",
@@ -70,7 +70,7 @@
                 "habitat": "woodlands"
             },
             "description": "A toxic mushroom that can be mistaken for edible varieties.",
-            "region": "Europe, North America"
+            "region": "Europe"
         },
         {
             "image": "/Paddy_Straw.png",

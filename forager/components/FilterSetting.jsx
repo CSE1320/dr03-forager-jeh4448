@@ -3,7 +3,7 @@
 'use client';
 import React from 'react';
 import PillList from "./PillList";
-import filterIcon from "../public/icons/FilterIcon.png";
+const filterIcon = "/icons/FilterIcon.png";
 
 const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle }) => {
   return (
@@ -14,7 +14,7 @@ const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle }) => {
         style={buttonStyle} // Use the passed buttonStyle prop
       >
         <img 
-          src={filterIcon.src} 
+          src={filterIcon} 
           alt="Filter" 
           style={{
             width: '30px', 

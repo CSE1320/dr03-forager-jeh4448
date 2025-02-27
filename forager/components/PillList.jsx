@@ -1,11 +1,11 @@
 'use client';
-
+//only app level things should have imports
 import React, { useState } from "react";
 import Pill from "./Pill";
 import { pills } from "@/data/pill.json";
 import "../styles/globals.css";
 import background from "../app/dashboard/Rectangle.png"
-import exit from "../app/dashboard/ExitX.png"
+const exit = "/ExitX.png"
 
 export default function PillList() {
     const filtersTags = pills.filter(pill => pill.pillFilterType === 'tags');

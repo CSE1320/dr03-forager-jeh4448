@@ -6,8 +6,8 @@ import NavBar from '../../components/NavBar';
 //import dashboard from "/dashboard.png";
 import FilterSettings from '../../components/FilterSetting'; 
 import SearchBar from "../../components/Search";
-import MushroomCards from '../../components/MushroomList';
-import { mushroomCards } from '../../components/Mushroom';
+import MushroomList from '../../components/MushroomList';
+const mushroomCard  = '../../components/Mushroom';
 
 export default function DashboardPage() {
   const [isPillListVisible, setPillListVisible] = useState(false);
@@ -27,7 +27,7 @@ export default function DashboardPage() {
     outline: 'none', // Remove outline on focus
   };
 
-  const specificMushrooms = mushroomCards;
+
 
   return (
     <div style={{
@@ -45,7 +45,7 @@ export default function DashboardPage() {
         togglePillList={togglePillList} 
         buttonStyle={filterButtonStyle} // Pass the button style here
       />
-      <MushroomCards specificMushroomCards={specificMushrooms} />
+      <MushroomList specificMushroomCard={mushroomCard} />
     </div>
   );
 }

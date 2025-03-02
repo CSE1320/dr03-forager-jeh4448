@@ -3,11 +3,12 @@ import mushroomData from "../../data/Mushrooms"; // Adjust the import path accor
 import MushroomCard from "@/components/Mushroom";
 
 export default function SandboxPage() {
+    // Get the specific mushroom card you want to display
+    const mushroom = mushroomData.mushroomCards.find(m => m.name === "Death Cap");
+
     return (
         <div className="page flex justify-center items-center flex-row flex-wrap">
-            {mushroomData.mushroomCards.map((mushroom, index) => (
-                <MushroomCard key={index} mushroom={mushroom} card = {true} />
-            ))}
+            {mushroom && <MushroomCard mushroom={mushroom} card={false} />}
         </div>
     );
 }

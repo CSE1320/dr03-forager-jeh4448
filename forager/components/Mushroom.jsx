@@ -18,11 +18,11 @@
 //output whole list if card is false, output just image and title if true
 
 const MushroomCard = ({ mushroom, card }) => {
-    const { image, name, scientific_name, features, description } = mushroom;
+    const { image, name, scientific_name, features, characteristics,description,  } = mushroom;
 
     return (
         <div className="mushroom-card">
-            <img src={image} alt={name} />
+            <img src={image} alt={name} width="290" height="290" />
             <h2>{name}</h2>
             {card ? true : (
                 <>
@@ -35,7 +35,10 @@ const MushroomCard = ({ mushroom, card }) => {
                             {/* <img width="27px" height="27px" className="" src={square}></img> */}
                             <h1 className="uppercase">Fast Facts</h1>
                         </div>
-                        <p className="">temp fast facts</p>
+                        <p className="">Cap Diameter : {characteristics.diameter}</p>
+                        <p className="">Gill Color : {characteristics.gill_color}</p>
+                        <p className="">Stem Color : {characteristics.stem_color}</p>
+                        <p className="">Habitat :  {characteristics.habitat}</p>
                     </div>
                     <p>{description}</p>
                 </>

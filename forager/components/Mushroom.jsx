@@ -1,3 +1,18 @@
+//how to call and use this
+// // Import the JSON data
+// import mushroomData from "../../data/Mushrooms"; // Adjust the import path accordingly
+// import MushroomCard from "@/components/Mushroom";
+
+// export default function SandboxPage() {
+//     return (
+//         <div className="page flex justify-center items-center flex-row flex-wrap">
+//             {mushroomData.mushroomCards.map((mushroom, index) => (
+//                 <MushroomCard key={index} mushroom={mushroom} card = {true} /> //true for basic cards, false for extended information
+//             ))}
+//         </div>
+//     );
+// }
+
 
 'use client'
 //output whole list if card is false, output just image and title if true

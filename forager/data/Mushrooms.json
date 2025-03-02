@@ -95,6 +95,30 @@
             },
             "description": "A popular edible mushroom cultivated in rice paddies.",
             "region": "Asia"
+        },
+        {
+            "image": "/Puffball.png",
+            "name": "Puffball",
+            "scientific_name": "Lycoperdon spp.",
+            "features": {
+                "is_toxic": false,
+                "is_favorite": false
+            },
+            "characteristics": {
+                "diameter": 5.0,
+                "gill_color": "not applicable",
+                "cap_shape": "spherical",
+                "cap_color": "white to brown",
+                "cap_texture": "smooth",
+                "gills_type": "none",
+                "gills_color": "not applicable",
+                "stem_shape": "absent",
+                "stem_color": "not applicable",
+                "stem_ring": "absent",
+                "habitat": "grasslands and woodlands"
+            },
+            "description": "A group of fungi that are round and produce spores instead of gills.",
+            "region": "Worldwide"
         }
     ]
 }

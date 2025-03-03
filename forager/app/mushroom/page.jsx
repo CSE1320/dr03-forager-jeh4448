@@ -1,14 +1,29 @@
+'use client'
 import Link from 'next/link';
 import NavBar from '../../components/NavBar';
+import { useSearchParams } from 'next/navigation'; // Import useSearchParams from next/navigation
+import MushroomCard from '@/components/Mushroom'; // Import MushroomCard if you want to use it to display the mushroom
 
 export default function MushroomPage() {
+  const searchParams = useSearchParams(); // Get searchParams instance
+  const mushroom = searchParams.get('mushroom'); // Access the query parameter
+
+  // Parse the mushroom data from the query string
+  const mushroomData = mushroom ? JSON.parse(mushroom) : null;
+
   return (
     <div className="page">
-      <h1>Mushroom Page</h1>
-      <Link href="/comparison">
-        <button>Go to Mushroom Comparison Page</button>
-      </Link>
       <NavBar />
+      {mushroomData ? (
+        <div>
+          <h2>Selected Mushroom</h2>
+          {/* Display mushroom data */}
+          <MushroomCard mushroom={mushroomData} card={false} />
+          {/* You can customize card prop to display it differently */}
+        </div>
+      ) : (
+        <p>No mushroom data selected.</p>
+      )}
     </div>
   );
 }

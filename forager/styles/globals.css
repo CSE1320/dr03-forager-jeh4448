@@ -8,3 +8,9 @@ body, html{
   font-weight: bold;
   color: black;
 }
+
+.pill-list-container {
+  height: 300px; /* Set a fixed height as per your design */
+  overflow: hidden; /* Prevent scrolling */
+}
+

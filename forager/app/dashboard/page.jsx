@@ -1,30 +1,38 @@
-'use client';
+// DashboardPage Component
+'use client'
 import React, { useState } from 'react';
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 import NavBar from '../../components/NavBar'; 
 import FilterSettings from '../../components/FilterSetting'; 
 import SearchBar from "../../components/Search";
-import mushroomData from "../../data/Mushrooms"; // Adjust the import path accordingly
+import Pill from '../../components/Pill'; 
+import mushroomData from "../../data/Mushrooms"; 
 import MushroomCard from "@/components/Mushroom";
-import '../../styles/DashboardPage.css'; // Adjust the path as necessary
+import '../../styles/DashboardPage.css'; 
+import PillList from "../../components/PillList";
 
 export default function DashboardPage() {
   const [isPillListVisible, setPillListVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedPills, setSelectedPills] = useState({}); // Track selected pills
 
   const togglePillList = () => {
     setPillListVisible(prev => !prev);
   }
 
-  // Button style object
-  const filterButtonStyle = {
-    position: 'absolute',
-    top: '200px', // Adjust top position
-    right: '33px', // Adjust right position
-    background: 'none', // Remove default button background
-    border: 'none', // Remove default button border
-    cursor: 'pointer', // Change cursor to pointer
-    outline: 'none', // Remove outline on focus
+  const handlePillSelectionChange = (newSelectedPills) => {
+    setSelectedPills(newSelectedPills);
+  };
+
+  const handlePillClick = (pillText) => {
+    setSelectedPills(prev => ({
+      ...prev,
+      [pillText]: !prev[pillText], // Toggle the selected state
+    }));
+  };
+
+  const handleExitPillList = () => {
+    setPillListVisible(false);
   };
 
   const filteredMushrooms = mushroomData.mushroomCards.filter(mushroom =>
@@ -34,27 +42,51 @@ export default function DashboardPage() {
   return (
     <div className="dashboard-container">
       <NavBar />
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      {!isPillListVisible && (
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      )}
       <FilterSettings 
         isPillListVisible={isPillListVisible} 
         togglePillList={togglePillList} 
-        buttonStyle={filterButtonStyle} // Pass the button style here
       />
+
+      {/* Render selected pills below SearchBar */}
+      <div className="selected-pills">
+        {Object.keys(selectedPills).filter(pillText => selectedPills[pillText]).map(pillText => (
+          <Pill 
+            key={pillText} 
+            pillText={pillText} 
+            pillSelected={true} 
+            onPillClick={() => handlePillClick(pillText)} 
+          />
+        ))}
+      </div>
+
+      {/* Render PillList and pass the selection change handler with a fixed height */}
+      {isPillListVisible && (
+        <div className="pill-list-container">
+          <button onClick={handleExitPillList} className="exit-button">Exit</button> {/* Exit button */}
+          <PillList onSelectionChange={handlePillSelectionChange} />
+        </div>
+      )}
+
       <div className="grid grid-cols-3 gap-4 mt-3">
-        {filteredMushrooms.map((mushroom, index) => (
+        {!isPillListVisible && filteredMushrooms.map((mushroom, index) => (
           <Link 
             key={index} 
             href={{
               pathname: '/mushroom',
-              query: { mushroom: JSON.stringify(mushroom) }, // Sending the mushroom data as a query parameter
+              query: { mushroom: JSON.stringify(mushroom) }, 
             }} 
-            style={{ textDecoration: 'none' }} // Remove default link styling
+            style={{ textDecoration: 'none' }} 
           >
-            <MushroomCard 
-              mushroom={mushroom} 
-              card={true} 
-              style={{ width: '134px', height: '169px' }} // Add inline styles here if needed
-            />
+            <div onClick={(e) => e.stopPropagation()} style={{ cursor: 'pointer' }}>
+              <MushroomCard 
+                mushroom={mushroom} 
+                card={true} 
+                style={{ width: '134px', height: '169px' }} 
+              />
+            </div>
           </Link>
         ))}
       </div>

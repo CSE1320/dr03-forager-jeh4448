@@ -1,12 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 const glass = "/SearchGlass.png";
 const bar = "/SearchBar.png";
 
-const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-
+const SearchBar = ({ searchTerm, setSearchTerm }) => {
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
     };

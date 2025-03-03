@@ -1,5 +1,3 @@
-// FilterSettings.jsx
-
 'use client';
 import React from 'react';
 import PillList from "./PillList";
@@ -26,7 +24,7 @@ const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle }) => {
       {/* Pill List Overlay */}
       {isPillListVisible && (
         <div style={{
-          position: 'absolute', //remove absolute, convert to tailwind
+          position: 'absolute',
           top: '50px', 
           left: '0',
           right: '0',
@@ -36,6 +34,27 @@ const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle }) => {
           padding: '20px', 
         }}>
           <PillList />
+          {/* Exit Button */}
+          <button 
+            onClick={togglePillList} 
+            style={{
+              position: 'absolute', // Position the button absolutely
+              top: '10px', // Adjust as necessary
+              right: '10px', // Adjust as necessary
+              width: '40px', // Adjust size as necessary
+              height: '40px', // Adjust size as necessary
+              filter: 'brightness(0.5)',
+            }}
+          >
+            <img 
+              src="/ExitX.png" // Use the exit image directly
+              alt="Exit Button" 
+              style={{
+                width: '100%', // Make the image fill the button
+                height: '100%',
+              }} 
+            />
+          </button>
         </div>
       )}
     </div>

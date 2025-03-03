@@ -1,44 +1,28 @@
-//how to call and use this
-// // Import the JSON data
-// import mushroomData from "../../data/Mushrooms"; // Adjust the import path accordingly
-// import MushroomCard from "@/components/Mushroom";
-
-// export default function SandboxPage() {
-//     return (
-//         <div className="page flex justify-center items-center flex-row flex-wrap">
-//             {mushroomData.mushroomCards.map((mushroom, index) => (
-//                 <MushroomCard key={index} mushroom={mushroom} card = {true} /> //true for basic cards, false for extended information
-//             ))}
-//         </div>
-//     );
-// }
-
-
 'use client'
-//output whole list if card is false, output just image and title if true
 
 const MushroomCard = ({ mushroom, card }) => {
-    const { image, name, scientific_name, features, characteristics,description,  } = mushroom;
+    const { image, name, scientific_name, features, characteristics, description } = mushroom;
 
     return (
         <div className="mushroom-card">
             <img src={image} alt={name} width="290" height="290" />
-            <h2>{name}</h2>
-            {card ? true : (
+            {card ? (
+                <h2 className="text-black">{name}</h2>
+            ) : (
                 <>
+                    <h2 className="text-black">{name}</h2>
                     <h3>{scientific_name}</h3>
                     <div className="fast-facts">
                         <p>Toxic: {features.is_toxic ? 'Yes' : 'No'}</p>
                     </div>
                     <div className="message brown rounded-xl text-sm w-full font-medium text-white px-4 py-4 mx-4" style={{ backgroundColor: '#8E4A49' }}>
                         <div className="header flex items-center">
-                            {/* <img width="27px" height="27px" className="" src={square}></img> */}
                             <h1 className="uppercase">Fast Facts</h1>
                         </div>
-                        <p className="">Cap Diameter : {characteristics.diameter}</p>
-                        <p className="">Gill Color : {characteristics.gill_color}</p>
-                        <p className="">Stem Color : {characteristics.stem_color}</p>
-                        <p className="">Habitat :  {characteristics.habitat}</p>
+                        <p>Cap Diameter : {characteristics.diameter}</p>
+                        <p>Gill Color : {characteristics.gill_color}</p>
+                        <p>Stem Color : {characteristics.stem_color}</p>
+                        <p>Habitat : {characteristics.habitat}</p>
                     </div>
                     <p>{description}</p>
                 </>
@@ -47,4 +31,4 @@ const MushroomCard = ({ mushroom, card }) => {
     );
 };
 
-export default MushroomCard
+export default MushroomCard;

@@ -1,0 +1,9 @@
+.dashboard-container {
+    background-image: url('/dashboard.png');
+    background-size: cover;
+    background-position: center;
+    background-color: #F2F2F2; /* Fallback color */
+    min-height: 100vh; /* Ensures the container covers at least the viewport height */
+    position: relative;
+    padding: 20px;
+}

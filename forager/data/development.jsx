@@ -52,9 +52,14 @@ const camScreen = {
     header: "cam",
     screen: "/BackgroundScreen.png"
 }
+const toxicMessage = {
+    header: "warning",
+    icon: "/icons/icon_warning.svg",
+    message: "This is a toxic species, proceed with caution."
+};
 
 // Two flavors of exporting:
 // export default dummyData; // Requires import dummyData from './data/development.js';
 
 // More than one export.
-export {pills, warningMessage, camScreen}; // Requires import {warningMessage, dummyData} from './data/development.js';
+export {pills, warningMessage, camScreen, toxicMessage}; // Requires import {warningMessage, dummyData} from './data/development.js';

@@ -30,6 +30,11 @@ export default function MushroomPage() {
       {mushroomData ? (
         <div>
           <h2>Selected Mushroom</h2>
+          {/* Link to the comparison page */}
+          <Link href="/comparison" className="flex items-center mb-4">
+            <img src={mushroomData.image} alt={mushroomData.name} className="w-16 h-16 mr-2" />
+            <span>comparison &gt;</span>
+          </Link>
           {/* Display mushroom data */}
           <MushroomCard mushroom={mushroomData} card={false} />
           {/* You can customize card prop to display it differently */}

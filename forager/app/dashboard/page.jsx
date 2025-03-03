@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link'; // Import Link from next/link
 import NavBar from '../../components/NavBar'; 
 import FilterSettings from '../../components/FilterSetting'; 
 import SearchBar from "../../components/Search";
@@ -41,12 +42,20 @@ export default function DashboardPage() {
       />
       <div className="grid grid-cols-3 gap-4 mt-3">
         {filteredMushrooms.map((mushroom, index) => (
-          <MushroomCard 
+          <Link 
             key={index} 
-            mushroom={mushroom} 
-            card={true} 
-            style={{ width: '134px', height: '169px' }} // Add inline styles here if needed
-          />
+            href={{
+              pathname: '/mushroom',
+              query: { mushroom: JSON.stringify(mushroom) }, // Sending the mushroom data as a query parameter
+            }} 
+            style={{ textDecoration: 'none' }} // Remove default link styling
+          >
+            <MushroomCard 
+              mushroom={mushroom} 
+              card={true} 
+              style={{ width: '134px', height: '169px' }} // Add inline styles here if needed
+            />
+          </Link>
         ))}
       </div>
     </div>

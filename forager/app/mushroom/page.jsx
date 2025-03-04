@@ -1,47 +1,83 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import NavBar from '../../components/NavBar';
-import { useSearchParams } from 'next/navigation'; // Import useSearchParams from next/navigation
-import MushroomCard from '@/components/Mushroom'; // Import MushroomCard if you want to use it to display the mushroom
-import { useEffect, useState } from 'react'; // Import useEffect and useState
-import Message from '@/components/Message'; // Import the Message component
+import { useSearchParams } from 'next/navigation'; 
+import MushroomCard from '@/components/Mushroom'; 
+import { useEffect, useState } from 'react'; 
+import Message from '@/components/Message'; 
+import mushroomDataJson from '../../data/Mushrooms'; 
 
 export default function MushroomPage() {
-  const searchParams = useSearchParams(); // Get searchParams instance
-  const mushroom = searchParams.get('mushroom'); // Access the query parameter
-
-  // Parse the mushroom data from the query string
-  const mushroomData = mushroom ? JSON.parse(mushroom) : null;
-
-  const [showMessage, setShowMessage] = useState(false); // State to manage message visibility
+  const searchParams = useSearchParams(); 
+  const [mushroomData, setMushroomData] = useState(null);
+  const [showMessage, setShowMessage] = useState(false); 
+  const [filteredMushrooms, setFilteredMushrooms] = useState([]); 
 
   useEffect(() => {
     const hasVisited = localStorage.getItem('hasVisitedMushroomPage');
+
     if (!hasVisited) {
-      setShowMessage(true); // Show message if it's the first visit
-      localStorage.setItem('hasVisitedMushroomPage', 'true'); // Set the flag in local storage
+      setShowMessage(true);
+      localStorage.setItem('hasVisitedMushroomPage', 'true');
     }
-  }, []);
+  }, []); // This effect only runs once
+
+  useEffect(() => {
+    const mushroomParam = searchParams.get('mushroom'); 
+    if (mushroomParam) {
+      try {
+        const mushroomDataParsed = JSON.parse(mushroomParam);
+        setMushroomData(mushroomDataParsed);
+      } catch (error) {
+        console.error('Error parsing mushroom data:', error);
+        setMushroomData(null);
+      }
+    } else {
+      setMushroomData(null);
+    }
+  }, [searchParams]); // Run when searchParams change
+
+  useEffect(() => {
+    if (mushroomDataJson && mushroomDataJson.mushroomCards) {
+      if (mushroomData) {
+        const filteredMushrooms = mushroomDataJson.mushroomCards.filter(
+          (mushroomCard) => mushroomCard.name !== mushroomData.name
+        );
+        setFilteredMushrooms(filteredMushrooms);
+      } else {
+        setFilteredMushrooms(mushroomDataJson.mushroomCards); // Show all if no mushroom is selected
+      }
+    }
+  }, [mushroomDataJson, mushroomData]); // Now depend on both mushroomDataJson and mushroomData
 
   return (
     <div className="page relative">
       <NavBar />
-      {showMessage && <Message />} {/* Render the Message component if showMessage is true */}
+      {showMessage && <Message />} 
       {mushroomData ? (
         <div>
           <h2>Selected Mushroom</h2>
-          {/* Link to the comparison page */}
           <Link href="/comparison" className="flex items-center mb-4">
             <img src={mushroomData.image} alt={mushroomData.name} className="w-16 h-16 mr-2" />
             <span>comparison &gt;</span>
           </Link>
-          {/* Display mushroom data */}
           <MushroomCard mushroom={mushroomData} card={false} />
-          {/* You can customize card prop to display it differently */}
         </div>
       ) : (
         <p>No mushroom data selected.</p>
       )}
+
+      <div className="grid grid-cols-2 gap-4 mt-3">
+        {filteredMushrooms.map((mushroom, index) => (
+          <div key={index} style={{ cursor: 'pointer' }}>
+            <MushroomCard 
+              mushroom={mushroom} 
+              card={true} 
+              style={{ width: '134px', height: '169px' }} 
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -78,7 +78,7 @@
             "scientific_name": "Volvariella volvacea",
             "features": {
                 "is_toxic": false,
-                "is_favorite": true
+                "is_favorite": false
             },
             "characteristics": {
                 "diameter": 5.0,

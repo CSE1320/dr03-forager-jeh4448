@@ -10,6 +10,19 @@
     padding: 10px 0;
     z-index: 100;
   }
+
+  .topbar {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #579076;
+    padding: 10px 0;
+    z-index: 100;
+  }
+
   
   .navItem {
     font-size: 24px;

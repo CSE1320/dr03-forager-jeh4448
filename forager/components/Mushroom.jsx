@@ -1,7 +1,32 @@
-'use client'
+'use client';
 import '../styles/globals.css'; // Import the CSS file for styling
+import { useState } from 'react';
+
 const MushroomCard = ({ mushroom, card }) => {
     const { image, name, scientific_name, features, characteristics, description } = mushroom;
+    
+    // State to manage is_favorite status
+    const [isFavorite, setIsFavorite] = useState(features.is_favorite);
+
+    const handleFavoriteClick = () => {
+        // Step 1: Retrieve the existing data from local storage
+        console.log("button pressed")
+        const existingData = localStorage.getItem('myFavoriteData');
+        let jsonData = existingData ? JSON.parse(existingData) : { mushroomCards: [] };
+
+        // Step 2: Find the mushroom in the stored data and update the favorite status
+        const mushroomIndex = jsonData.mushroomCards.findIndex(card => card.name === mushroom.name);
+        
+        if (mushroomIndex !== -1) {
+            jsonData.mushroomCards[mushroomIndex].features.is_favorite = true; // Set the is_favorite property to true
+        }
+
+        // Step 3: Save the updated JSON back to local storage
+        localStorage.setItem('myFavoriteData', JSON.stringify(jsonData));
+
+        // Update the state to reflect the change in favorite status
+        setIsFavorite(true);
+    };
 
     return (
         <div className="mushroom-card">
@@ -15,7 +40,11 @@ const MushroomCard = ({ mushroom, card }) => {
                             <h2 className="text-black">{name}</h2>
                             <h3>{scientific_name}</h3>
                         </div>
-                        <div className="circle"></div>
+                        <div 
+                            className="circle cursor-pointer" 
+                            onClick={handleFavoriteClick} 
+                            style={{ backgroundColor: isFavorite ? 'gold' : 'gray' }} // Change color based on favorite status
+                        ></div>
                     </div>
                     <div className="fast-facts">
                         <p>Toxic: {features.is_toxic ? 'Yes' : 'No'}</p>

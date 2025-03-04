@@ -1,5 +1,5 @@
 'use client'
-
+import '../styles/globals.css'; // Import the CSS file for styling
 const MushroomCard = ({ mushroom, card }) => {
     const { image, name, scientific_name, features, characteristics, description } = mushroom;
 
@@ -10,8 +10,13 @@ const MushroomCard = ({ mushroom, card }) => {
                 <h2 className="text-black">{name}</h2>
             ) : (
                 <>
-                    <h2 className="text-black">{name}</h2>
-                    <h3>{scientific_name}</h3>
+                    <div className="mushroom-text-container">
+                        <div className="text-container">
+                            <h2 className="text-black">{name}</h2>
+                            <h3>{scientific_name}</h3>
+                        </div>
+                        <div className="circle"></div>
+                    </div>
                     <div className="fast-facts">
                         <p>Toxic: {features.is_toxic ? 'Yes' : 'No'}</p>
                     </div>

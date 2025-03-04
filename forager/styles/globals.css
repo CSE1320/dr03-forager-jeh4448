@@ -14,3 +14,23 @@ body, html{
   overflow: hidden; /* Prevent scrolling */
 }
 
+.mushroom-text-container {
+  display: flex;
+  align-items: center; /* Aligns items vertically in the center */
+  justify-content: space-between; /* Space between text and circle */
+  padding: 10px; /* Optional padding */
+  border: 1px solid #ccc; /* Optional border for the box */
+  border-radius: 5px; /* Optional rounded corners */
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column; /* Stack name and scientific name vertically */
+}
+
+.circle {
+  width: 40px; /* Set the width of the circle */
+  height: 40px; /* Set the height of the circle */
+  background-color: #007bff; /* Adjust the circle color as needed */
+  border-radius: 50%; /* Makes the div a circle */
+}

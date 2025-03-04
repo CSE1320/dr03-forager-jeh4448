@@ -1,5 +1,5 @@
 // DashboardPage Component
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import NavBar from '../../components/NavBar'; 
@@ -18,7 +18,7 @@ export default function DashboardPage() {
 
   const togglePillList = () => {
     setPillListVisible(prev => !prev);
-  }
+  };
 
   const handlePillSelectionChange = (newSelectedPills) => {
     setSelectedPills(newSelectedPills);
@@ -35,9 +35,25 @@ export default function DashboardPage() {
     setPillListVisible(false);
   };
 
-  const filteredMushrooms = mushroomData.mushroomCards.filter(mushroom =>
-    mushroom.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredMushrooms = mushroomData.mushroomCards.filter(mushroom => {
+    const matchesSearchTerm = mushroom.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSelectedPills = Object.keys(selectedPills).filter(pillText => selectedPills[pillText]).every(pillText => {
+      if (pillText === "Favorites") {
+        return mushroom.features.is_favorite; // Check if it's a favorite
+      } else if (pillText === "North America" || pillText === "Europe" || pillText === "Asia" || pillText === "Africa" || pillText === "South America") {
+        return mushroom.region === pillText; // Check if the region matches
+      } else if (pillText === "Poisonous") {
+        return mushroom.features.is_toxic; // Check if it's poisonous
+      } else if (pillText === "Medicinal") {
+        // Assuming a property indicating if it's medicinal (this needs to be defined in your data)
+        return mushroom.features.is_medicinal; // Check if it's medicinal (assuming you have this property)
+      }
+      // Add more conditions based on your pill definitions
+      return true; // Default to true if the pill doesn't match any known filters
+    });
+
+    return matchesSearchTerm && matchesSelectedPills;
+  });
 
   return (
     <div className="dashboard-container">

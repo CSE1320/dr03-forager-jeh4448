@@ -3,7 +3,7 @@
         {
             "pillText": "Favorites",
             "pillFilterType": "tags",
-            "pillSelected": true
+            "pillSelected": false
         },
         {
             "pillText": "Recent",

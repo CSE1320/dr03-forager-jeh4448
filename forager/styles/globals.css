@@ -29,8 +29,33 @@ body, html{
 }
 
 .circle {
+  position: relative; /* Required for positioning the pseudo-elements */
   width: 40px; /* Set the width of the circle */
   height: 40px; /* Set the height of the circle */
-  background-color: #007bff; /* Adjust the circle color as needed */
+  background-color: #579076; /* Change the circle color */
   border-radius: 50%; /* Makes the div a circle */
 }
+
+.circle::before,
+.circle::after {
+  content: '';
+  position: absolute;
+  background-color: white; /* Color of the plus shape */
+}
+
+.circle::before {
+  width: 6px; /* Width of the vertical part of the plus */
+  height: 20px; /* Height of the vertical part of the plus */
+  top: 10px; /* Center it vertically */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+}
+
+.circle::after {
+  width: 20px; /* Width of the horizontal part of the plus */
+  height: 6px; /* Height of the horizontal part of the plus */
+  top: 50%; /* Center it vertically */
+  left: 10px; /* Center it horizontally */
+  transform: translateY(-50%); /* Adjust for centering */
+}
+

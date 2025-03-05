@@ -11,7 +11,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
 
     return (
         <div>
-            <img src={bar} alt="Search Bar" style={{ width: '30px', height: '200px' }} />
+            {/* <img src={bar} alt="Search Bar" style={{ width: '30px', height: '200px' }} /> */}
             <input
                 type="text"
                 value={searchTerm}
@@ -37,9 +37,9 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
                 style={{
                     position: 'absolute',
                     left: '10px',
-                    top: '50%',
                     transform: 'translateY(-50%)',
                     cursor: 'pointer',
+                    zIndex: '1'
                 }}
             />
         </div>

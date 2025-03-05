@@ -6,7 +6,7 @@ const BackgroundScreen = () => {
         <div className="">
             <div className="header flex items-center">
                 <img className="" src={camScreen.screen}></img>
-                <h1 className="uppercase">{camScreen.header}</h1>
+                {/* <h1 className="uppercase">{camScreen.header}</h1> */}
             </div>
             {/* <p className="">{warningMessage.message}</p> */}
         </div>

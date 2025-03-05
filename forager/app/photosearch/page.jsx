@@ -1,17 +1,19 @@
 import NavBar from '../../components/NavBar';
 import BackgroundScreen from '@/components/BackgroundScreen';
 import Link from 'next/link';
-import '../../styles/Photosearch.module.css'; // Create a CSS module or use inline styles
+import styles from '../../styles/Photosearch.module.css'; // Adjust to use CSS module
 
 export default function PhotoSearchPage() {
   return (
-    <div className="page">
+    <div className={styles.page}>
       <BackgroundScreen />
-      <Link href="/dashboard" passHref>
-        <button className="backButton" aria-label="Go to Dashboard">
-          &lt;
-        </button>
-      </Link>
+      <div className={styles.buttonContainer}>
+        <Link href="/dashboard" passHref>
+          <button className={styles.backButton} aria-label="Go to Dashboard">
+            &lt; Back
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

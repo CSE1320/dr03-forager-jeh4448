@@ -6,6 +6,7 @@ import MushroomCard from '@/components/Mushroom';
 import { useEffect, useState } from 'react'; 
 import Message from '@/components/Message'; 
 import mushroomDataJson from '../../data/Mushrooms'; 
+import TopBar from '@/components/TopBar';
 
 export default function MushroomPage() {
   const searchParams = useSearchParams(); 
@@ -51,7 +52,8 @@ export default function MushroomPage() {
   }, [mushroomDataJson, mushroomData]); // Now depend on both mushroomDataJson and mushroomData
 
   return (
-    <div className="page relative">
+    <div className="page relative" style={{ backgroundColor: '#F2F2F2' }}>
+      <TopBar></TopBar>
       <NavBar />
       {showMessage && <Message />} 
       {mushroomData ? (
@@ -59,7 +61,7 @@ export default function MushroomPage() {
           <h2>Selected Mushroom</h2>
           <Link href="/comparison" className="flex items-center mb-4">
             <img src={mushroomData.image} alt={mushroomData.name} className="w-16 h-16 mr-2" />
-            <span>comparison &gt;</span>
+            <span style={{color: 'black'}}>comparison &gt;</span>
           </Link>
           <MushroomCard mushroom={mushroomData} card={false} />
         </div>

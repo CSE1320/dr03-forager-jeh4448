@@ -15,6 +15,7 @@ export default function DashboardPage() {
   const [isPillListVisible, setPillListVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPills, setSelectedPills] = useState({}); // Track selected pills
+  const [mushrooms, setMushrooms] = useState(mushroomData.mushroomCards); // State for mushrooms
 
   const togglePillList = () => {
     setPillListVisible(prev => !prev);
@@ -35,7 +36,17 @@ export default function DashboardPage() {
     setPillListVisible(false);
   };
 
-  const filteredMushrooms = mushroomData.mushroomCards.filter(mushroom => {
+  const markFirstMushroomAsFavorite = () => {
+    setMushrooms(prevMushrooms => {
+      const updatedMushrooms = [...prevMushrooms];
+      if (updatedMushrooms[0]) {
+        updatedMushrooms[0].features.is_favorite = true; // Set first mushroom as favorite
+      }
+      return updatedMushrooms;
+    });
+  };
+
+  const filteredMushrooms = mushrooms.filter(mushroom => {
     const matchesSearchTerm = mushroom.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesSelectedPills = Object.keys(selectedPills).filter(pillText => selectedPills[pillText]).every(pillText => {
       if (pillText === "Favorites") {
@@ -45,10 +56,8 @@ export default function DashboardPage() {
       } else if (pillText === "Poisonous") {
         return mushroom.features.is_toxic; // Check if it's poisonous
       } else if (pillText === "Medicinal") {
-        // Assuming a property indicating if it's medicinal (this needs to be defined in your data)
         return mushroom.features.is_medicinal; // Check if it's medicinal (assuming you have this property)
       }
-      // Add more conditions based on your pill definitions
       return true; // Default to true if the pill doesn't match any known filters
     });
 
@@ -105,6 +114,23 @@ export default function DashboardPage() {
             </div>
           </Link>
         ))}
+      </div>
+
+      {/* Button moved to be part of the flow */}
+      <div style={{ position: 'relative', marginTop: '20px', display: 'flex', justifyContent: 'flex-end' }}>
+        <button 
+          onClick={markFirstMushroomAsFavorite} 
+          style={{
+            width: '50px',
+            height: '50px',
+            backgroundColor: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+          aria-label="Favorite first mushroom" // Accessibility label
+        >
+          Favorite
+        </button>
       </div>
     </div>
   );

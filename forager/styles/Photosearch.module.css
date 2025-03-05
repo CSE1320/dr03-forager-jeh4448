@@ -1,0 +1,22 @@
+.page {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust based on your design */
+}
+
+.buttonContainer {
+    position: absolute;
+    top: 75px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    z-index: 10; /* Ensure the button is above the image */
+}
+
+.backButton {
+    background: transparent; /* Fully transparent background */
+    border: none;
+    border-radius: 5px; /* Optional: rounded corners */
+    padding: 10px 15px; /* Optional: padding */
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size as needed */
+    color: transparent; /* Fully transparent text */
+}

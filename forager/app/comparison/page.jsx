@@ -11,8 +11,9 @@ export default function MushroomComparisonPage() {
     return (
         <div>
             <NavBar />
-            <TopBar />
-            <h1>Mushroom Comparison</h1>
+            <TopBar>
+                    <h1>Compare</h1> {/* You can pass in any content here */}
+            </TopBar>
             <ComparisonTable mushroomId={mushroomId} /> {/* Pass the mushroomId to ComparisonTable */}
         </div>
     );

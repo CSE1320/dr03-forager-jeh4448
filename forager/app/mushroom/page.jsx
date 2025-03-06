@@ -8,6 +8,7 @@ import Message from '@/components/Message';
 import mushroomDataJson from '../../data/Mushrooms'; 
 import TopBar from '@/components/TopBar';
 import ToxicMessage from '@/components/ToxicMessage';
+import "../../styles/globals.css"
 
 export default function MushroomPage() {
   const searchParams = useSearchParams(); 
@@ -63,7 +64,9 @@ export default function MushroomPage() {
 
   return (
     <div className="page relative" style={{ backgroundColor: '#F2F2F2' }}>
-      <TopBar />
+      <TopBar>
+        <h1>Match Results</h1> {/* You can pass in any content here */}
+      </TopBar>
       <NavBar />
       {showMessage && <Message />} 
       {showToxicMessage && <div style={{ marginTop: '30px' }}><ToxicMessage /></div>} {/* Added marginTop to ToxicMessage */}

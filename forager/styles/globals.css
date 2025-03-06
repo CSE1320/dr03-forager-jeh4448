@@ -63,3 +63,41 @@ body, html{
   transform: translateY(-50%); /* Adjust for centering */
 }
 
+/* Assuming you have a class for the topbar, it needs to be defined */
+.topbar {
+  position: relative; /* Set position to relative */
+  height: 60px; /* Set a fixed height for the top bar */
+  background-color: #579076; /* Background color of the top bar */
+  display: flex; /* Optional: use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 0 20px; /* Optional: add some horizontal padding */
+  height: 120px; 
+  border-bottom-left-radius: 20px; 
+  border-bottom-right-radius: 20px; 
+}
+
+.buttonContainer {
+  position: absolute; /* Keep it absolute */
+  top: 50%; /* Center it vertically */
+  left: 20px; /* Adjust as needed */
+  transform: translateY(-50%); /* Adjust for centering */
+  z-index: 10; /* Ensure the button is above other elements */
+}
+
+.backButton {
+  background: transparent; /* Fully transparent background */
+  border: none;
+  border-radius: 5px; /* Optional: rounded corners */
+  padding: 10px 15px; /* Optional: padding */
+  cursor: pointer;
+  font-size: 16px; /* Adjust font size as needed */
+  color: white; /* Set the text color to something visible */
+}
+
+.title-font {
+  color: white;          /* Set text color to white */
+  text-align: center;   /* Center align text */
+  font-weight: bold;    /* Make text bold */
+  font-size: xx-large;
+}

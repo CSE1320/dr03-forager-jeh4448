@@ -54,7 +54,7 @@ export default function ComparisonTable({ mushroomId }) {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '20px', color: '#203B5F' }}>
             {/* Container for MushroomCards */}
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                 {/* Render MushroomCard for chosenMushroom */}
@@ -82,11 +82,11 @@ export default function ComparisonTable({ mushroomId }) {
                                     name={key} 
                                     value={value} 
                                     onChange={handleChange} 
-                                    style={{ width: '100%', border: 'none', outline: 'none' }} 
+                                    style={{ width: '100%', border: 'none', outline: 'none', color: '#203B5F' }} 
                                 />
                             </td>
-                            <td style={{ border: '1px solid black' }}>{key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())}</td>
-                            <td style={{ border: '1px solid black' }}>{bestFitMushroom.characteristics[key]}</td>
+                            <td style={{ border: '1px solid black', color: '#203B5F' }}>{key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())}</td>
+                            <td style={{ border: '1px solid black', color: '#203B5F' }}>{bestFitMushroom.characteristics[key]}</td>
                         </tr>
                     ))}
                 </tbody>

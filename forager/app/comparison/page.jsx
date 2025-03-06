@@ -9,7 +9,7 @@ export default function MushroomComparisonPage() {
     const mushroomId = searchParams.get('mushroomId'); // Assuming you're getting a mushroom ID from query parameters
 
     return (
-        <div>
+        <div className="page relative" style={{ backgroundColor: '#F2F2F2' }}>
             <NavBar />
             <TopBar>
                     <h1>Compare</h1> {/* You can pass in any content here */}

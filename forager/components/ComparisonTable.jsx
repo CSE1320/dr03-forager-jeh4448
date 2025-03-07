@@ -1,47 +1,40 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar'; 
-import mushroomData from "../data/Mushrooms"; // Adjust the import path accordingly
+import mushroomDataJson from "../data/Mushrooms"; // Ensure correct import path
 import MushroomCard from '@/components/Mushroom';
 
-// Function to find mushroom by ID
-const findMushroomById = (id) => {
-    return mushroomData.mushroomCards.find(mushroom => mushroom.id === id); // Assuming each mushroom has a unique 'id'
-};
+export default function ComparisonTable({ mushroomIndex }) {
+    // Log the index for debugging
+    console.log('Selected Mushroom Index:', mushroomIndex);
 
-export default function ComparisonTable({ mushroomId }) {
-    const chosenMushroom = findMushroomById(mushroomId) || mushroomData.mushroomCards[0]; // Default to first if not found
-    const bestFitMushroom = mushroomData.mushroomCards[1]; // assuming Destroying Angel is the second entry
+    // Handle case where the index might be out of bounds
+    const chosenMushroom = mushroomIndex >= 0 && mushroomIndex < mushroomDataJson.mushroomCards.length
+        ? mushroomDataJson.mushroomCards[mushroomIndex]
+        : mushroomDataJson.mushroomCards[0]; // Default to the first mushroom if index is invalid
 
-    const [editableCharacteristics, setEditableCharacteristics] = useState({
-        diameter: chosenMushroom.characteristics.diameter,
-        gill_color: chosenMushroom.characteristics.gill_color,
-        cap_shape: chosenMushroom.characteristics.cap_shape,
-        cap_color: chosenMushroom.characteristics.cap_color,
-        cap_texture: chosenMushroom.characteristics.cap_texture,
-        gills_type: chosenMushroom.characteristics.gills_type,
-        gills_color: chosenMushroom.characteristics.gills_color,
-        stem_shape: chosenMushroom.characteristics.stem_shape,
-        stem_color: chosenMushroom.characteristics.stem_color,
-        stem_ring: chosenMushroom.characteristics.stem_ring,
-        habitat: chosenMushroom.characteristics.habitat,
-    });
+    // Assuming the 'best fit' mushroom is the second entry in the list
+    const bestFitMushroom = mushroomDataJson.mushroomCards[1] || null; // Ensure it defaults correctly
+
+    const [editableCharacteristics, setEditableCharacteristics] = useState({});
 
     // Update editable characteristics when chosenMushroom changes
     useEffect(() => {
-        setEditableCharacteristics({
-            diameter: chosenMushroom.characteristics.diameter,
-            gill_color: chosenMushroom.characteristics.gill_color,
-            cap_shape: chosenMushroom.characteristics.cap_shape,
-            cap_color: chosenMushroom.characteristics.cap_color,
-            cap_texture: chosenMushroom.characteristics.cap_texture,
-            gills_type: chosenMushroom.characteristics.gills_type,
-            gills_color: chosenMushroom.characteristics.gills_color,
-            stem_shape: chosenMushroom.characteristics.stem_shape,
-            stem_color: chosenMushroom.characteristics.stem_color,
-            stem_ring: chosenMushroom.characteristics.stem_ring,
-            habitat: chosenMushroom.characteristics.habitat,
-        });
+        if (chosenMushroom) {
+            setEditableCharacteristics({
+                diameter: chosenMushroom.characteristics.diameter,
+                gill_color: chosenMushroom.characteristics.gill_color,
+                cap_shape: chosenMushroom.characteristics.cap_shape,
+                cap_color: chosenMushroom.characteristics.cap_color,
+                cap_texture: chosenMushroom.characteristics.cap_texture,
+                gills_type: chosenMushroom.characteristics.gills_type,
+                gills_color: chosenMushroom.characteristics.gills_color,
+                stem_shape: chosenMushroom.characteristics.stem_shape,
+                stem_color: chosenMushroom.characteristics.stem_color,
+                stem_ring: chosenMushroom.characteristics.stem_ring,
+                habitat: chosenMushroom.characteristics.habitat,
+            });
+        }
     }, [chosenMushroom]);
 
     // Handler to update state
@@ -61,7 +54,9 @@ export default function ComparisonTable({ mushroomId }) {
                 <MushroomCard mushroom={chosenMushroom} card={true}/>
                 
                 {/* Render MushroomCard for bestFitMushroom */}
-                <MushroomCard mushroom={bestFitMushroom} card={true} baseMushroom={chosenMushroom}/>
+                {bestFitMushroom && (
+                    <MushroomCard mushroom={bestFitMushroom} card={true} baseMushroom={chosenMushroom}/>
+                )}
             </div>
             
             {/* Table displaying characteristics */}
@@ -70,7 +65,7 @@ export default function ComparisonTable({ mushroomId }) {
                     <tr>
                         <th>{chosenMushroom.name} ({chosenMushroom.scientific_name})</th>
                         <th>Mushroom Characteristics</th>
-                        <th>{bestFitMushroom.name} ({bestFitMushroom.scientific_name})</th>
+                        <th>{bestFitMushroom ? bestFitMushroom.name : 'Not Available'} ({bestFitMushroom ? bestFitMushroom.scientific_name : 'N/A'})</th>
                     </tr>
                 </thead>
                 <tbody style={{ border: '1px solid black' }}>
@@ -86,7 +81,7 @@ export default function ComparisonTable({ mushroomId }) {
                                 />
                             </td>
                             <td style={{ border: '1px solid black', color: '#203B5F' }}>{key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())}</td>
-                            <td style={{ border: '1px solid black', color: '#203B5F' }}>{bestFitMushroom.characteristics[key]}</td>
+                            <td style={{ border: '1px solid black', color: '#203B5F' }}>{bestFitMushroom ? bestFitMushroom.characteristics[key] : 'N/A'}</td>
                         </tr>
                     ))}
                 </tbody>

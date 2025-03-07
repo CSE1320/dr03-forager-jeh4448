@@ -1,38 +1,50 @@
 'use client';
-import '../styles/globals.css'; // Import the CSS file for styling
+import '../styles/globals.css'; 
 import { useState } from 'react';
+import MushroomMatch from '@/components/ComparisonPercentage'; // Import MushroomMatch
 
-const MushroomCard = ({ mushroom, card }) => {
+const MushroomCard = ({ mushroom, card, baseMushroom }) => {
     const { image, name, scientific_name, features, characteristics, description } = mushroom;
     
-    // State to manage is_favorite status
     const [isFavorite, setIsFavorite] = useState(features.is_favorite);
 
     const handleFavoriteClick = () => {
-        // Step 1: Retrieve the existing data from local storage
-        console.log("button pressed")
         const existingData = localStorage.getItem('myFavoriteData');
         let jsonData = existingData ? JSON.parse(existingData) : { mushroomCards: [] };
 
-        // Step 2: Find the mushroom in the stored data and update the favorite status
         const mushroomIndex = jsonData.mushroomCards.findIndex(card => card.name === mushroom.name);
         
         if (mushroomIndex !== -1) {
-            jsonData.mushroomCards[mushroomIndex].features.is_favorite = true; // Set the is_favorite property to true
+            jsonData.mushroomCards[mushroomIndex].features.is_favorite = true; 
         }
 
-        // Step 3: Save the updated JSON back to local storage
         localStorage.setItem('myFavoriteData', JSON.stringify(jsonData));
-
-        // Update the state to reflect the change in favorite status
         setIsFavorite(true);
     };
 
     return (
         <div className="background">
             <img src={image} alt={name} width="290" height="290" />
+            
             {card ? (
-                <h2 className="text-black">{name}</h2>
+                <>
+                    <h2 className="text-black">{name}</h2>
+                    {/* Include MushroomMatch when card is true */}
+                    {baseMushroom && (
+                        <div style={{
+                            bottom: "250px",
+                            position: "relative",
+                            width: "fit-content",
+                            left: "65px",
+                        }}>
+                            <MushroomMatch 
+                                baseMushroom={baseMushroom} 
+                                compareMushroom={mushroom} 
+                                card={true} 
+                            />
+                        </div>
+                    )}
+                </>
             ) : (
                 <>
                     <div className="mushroom-text-container">
@@ -43,7 +55,7 @@ const MushroomCard = ({ mushroom, card }) => {
                         <div 
                             className="circle cursor-pointer" 
                             onClick={handleFavoriteClick} 
-                            style={{ backgroundColor: isFavorite ? 'gold' : 'gray' }} // Change color based on favorite status
+                            style={{ backgroundColor: isFavorite ? 'gold' : 'gray' }} 
                         ></div>
                     </div>
                     <div className="fast-facts">
@@ -59,6 +71,21 @@ const MushroomCard = ({ mushroom, card }) => {
                         <p>Habitat : {characteristics.habitat}</p>
                     </div>
                     <p>{description}</p>
+                    {/* Include MushroomMatch when card is false */}
+                    {baseMushroom && (
+                        <div style={{
+                            bottom: "605px",
+                            position: "relative",
+                            width: "fit-content",
+                            left: "170px",
+                        }}>
+                            <MushroomMatch 
+                                baseMushroom={baseMushroom} 
+                                compareMushroom={mushroom} 
+                                card={false} 
+                            />
+                        </div>
+                    )}
                 </>
             )}
         </div>

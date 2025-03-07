@@ -9,23 +9,21 @@ import mushroomDataJson from '../../data/Mushrooms';
 import TopBar from '@/components/TopBar';
 import ToxicMessage from '@/components/ToxicMessage';
 import "../../styles/globals.css"
-import MushroomMatch from '@/components/ComparisonPercentage';
 
 export default function MushroomPage() {
   const searchParams = useSearchParams(); 
   const [mushroomData, setMushroomData] = useState(null);
   const [showMessage, setShowMessage] = useState(false); 
   const [filteredMushrooms, setFilteredMushrooms] = useState([]); 
-  const [showToxicMessage, setShowToxicMessage] = useState(false); // New state for toxic message
+  const [showToxicMessage, setShowToxicMessage] = useState(false); 
 
   useEffect(() => {
     const hasVisited = localStorage.getItem('hasVisitedMushroomPage');
-
     if (!hasVisited) {
       setShowMessage(true);
       localStorage.setItem('hasVisitedMushroomPage', 'true');
     }
-  }, []); // This effect only runs once
+  }, []);
 
   useEffect(() => {
     const mushroomParam = searchParams.get('mushroom'); 
@@ -40,7 +38,7 @@ export default function MushroomPage() {
     } else {
       setMushroomData(null);
     }
-  }, [searchParams]); // Run when searchParams change
+  }, [searchParams]);
 
   useEffect(() => {
     if (mushroomDataJson && mushroomDataJson.mushroomCards) {
@@ -50,27 +48,22 @@ export default function MushroomPage() {
         );
         setFilteredMushrooms(filteredMushrooms);
         
-        // Check if the selected mushroom is toxic
-        if (mushroomData.features.is_toxic) {
-          setShowToxicMessage(true);
-        } else {
-          setShowToxicMessage(false);
-        }
+        setShowToxicMessage(mushroomData.features.is_toxic);
       } else {
-        setFilteredMushrooms(mushroomDataJson.mushroomCards); // Show all if no mushroom is selected
-        setShowToxicMessage(false); // Reset toxic message
+        setFilteredMushrooms(mushroomDataJson.mushroomCards);
+        setShowToxicMessage(false);
       }
     }
-  }, [mushroomDataJson, mushroomData]); // Now depend on both mushroomDataJson and mushroomData
+  }, [mushroomDataJson, mushroomData]);
 
   return (
     <div className="page relative" style={{ backgroundColor: '#F2F2F2' }}>
       <TopBar>
-        <h1>Match Results</h1> {/* You can pass in any content here */}
+        <h1>Match Results</h1>
       </TopBar>
       <NavBar />
       {showMessage && <Message />} 
-      {showToxicMessage && <div style={{ marginTop: '30px' }}><ToxicMessage /></div>} {/* Added marginTop to ToxicMessage */}
+      {showToxicMessage && <div style={{ marginTop: '30px' }}><ToxicMessage /></div>} 
       
       <div style={{ marginTop: '20px' }}>
         {mushroomData ? (
@@ -79,15 +72,7 @@ export default function MushroomPage() {
             <Link href="/comparison" className="flex items-center mb-4">
               <span style={{ color: 'black' }}>comparison &gt;</span>
             </Link>
-            <MushroomCard mushroom={mushroomData} card={false} />
-            <div>
-            <h1>Mushroom Comparison</h1>
-            <MushroomMatch 
-                baseMushroom={mushroomData} 
-                compareMushroom={mushroomData} 
-                card={true} 
-            />
-        </div>
+            <MushroomCard mushroom={mushroomData} card={false} baseMushroom={mushroomData} />
           </div>
         ) : (
           <p>No mushroom data selected.</p>
@@ -100,16 +85,9 @@ export default function MushroomPage() {
             <MushroomCard 
               mushroom={mushroom} 
               card={true} 
+              baseMushroom={mushroomData} // Pass the original mushroom data
               style={{ width: '134px', height: '169px' }} 
             />
-            <div>
-            <h1>Mushroom Comparison</h1>
-            <MushroomMatch 
-                baseMushroom={mushroomData} 
-                compareMushroom={mushroom} 
-                card={false} 
-            />
-        </div>
           </div>
         ))}
       </div>

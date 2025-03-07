@@ -2,8 +2,12 @@ import NavBar from '../../components/NavBar';
 import BackgroundScreen from '@/components/BackgroundScreen';
 import Link from 'next/link';
 import styles from '../../styles/Photosearch.module.css'; // Adjust to use CSS module
+import mushroomData from "../../data/testMushroom"; 
 
 export default function PhotoSearchPage() {
+  // Stringify the mushroom data to pass it as a query parameter
+  const mushroomDataString = encodeURIComponent(JSON.stringify(mushroomData));
+
   return (
     <div className={styles.page}>
       <BackgroundScreen />
@@ -15,8 +19,8 @@ export default function PhotoSearchPage() {
         </Link>
       </div>
       <div className={styles.circleContainer}>
-        <Link href="/comparison" passHref>
-          <button className={styles.circleButton} aria-label="Go to comparison">
+        <Link href={`/mushroom?mushroom=${mushroomDataString}`} passHref>
+          <button className={styles.circleButton} aria-label="Go to mushroom">
           </button>
         </Link>
       </div>

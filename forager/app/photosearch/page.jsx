@@ -14,6 +14,12 @@ export default function PhotoSearchPage() {
           </button>
         </Link>
       </div>
+      <div className={styles.circleContainer}>
+        <Link href="/comparison" passHref>
+          <button className={styles.circleButton} aria-label="Go to comparison">
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

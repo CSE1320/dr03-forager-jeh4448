@@ -77,7 +77,6 @@ export default function MushroomPage() {
           <div>
             <h2>Selected Mushroom</h2>
             <Link href="/comparison" className="flex items-center mb-4">
-              <img src={mushroomData.image} alt={mushroomData.name} className="w-16 h-16 mr-2" />
               <span style={{ color: 'black' }}>comparison &gt;</span>
             </Link>
             <MushroomCard mushroom={mushroomData} card={false} />

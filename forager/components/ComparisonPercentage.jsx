@@ -16,12 +16,14 @@ const MushroomMatch = ({ baseMushroom, compareMushroom, card }) => {
             alignItems: 'center',
             color: 'white' 
         }}>
-            <span>{`${matchPercentage.toFixed(2)}%`}</span>
+            
             {card && (
                 <div style={{ marginLeft: '10px' }}>
-                    {warningMessage.icon} {/* Assuming this is your icon */}
+                     {/* Assuming this is your icon */}
+                    <img src={warningMessage.icon} alt={"warning icon"} className="" />
                 </div>
             )}
+            <span>{`${matchPercentage.toFixed(2)}%`}</span>
         </div>
     );
 };

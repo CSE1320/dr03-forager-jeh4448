@@ -61,7 +61,8 @@ const MushroomCard = ({ mushroom, card, baseMushroom }) => {
                     <div className="fast-facts">
                         <p>Toxic: {features.is_toxic ? 'Yes' : 'No'}</p>
                     </div>
-                    <div className="background message brown rounded-xl text-sm w-full font-medium text-black px-4 py-4 mx-4" style={{ backgroundColor: '#8E4A49' }}>
+                    <div className="background message brown rounded-xl text-sm w-full font-medium text-white px-4 py-4" style={{ backgroundColor: '#8E4A49' }}>
+
                         <div className="header flex items-center">
                             <h1 className="uppercase">Fast Facts</h1>
                         </div>
@@ -70,14 +71,14 @@ const MushroomCard = ({ mushroom, card, baseMushroom }) => {
                         <p>Stem Color : {characteristics.stem_color}</p>
                         <p>Habitat : {characteristics.habitat}</p>
                     </div>
-                    <p>{description}</p>
+                    <p className='text-black'>{description}</p>
                     {/* Include MushroomMatch when card is false */}
                     {baseMushroom && (
                         <div style={{
                             bottom: "605px",
                             position: "relative",
                             width: "fit-content",
-                            left: "170px",
+                            left: "140px",
                         }}>
                             <MushroomMatch 
                                 baseMushroom={baseMushroom} 

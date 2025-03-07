@@ -11,16 +11,23 @@ const MushroomCard = ({ mushroom, card, baseMushroom }) => {
     const handleFavoriteClick = () => {
         const existingData = localStorage.getItem('myFavoriteData');
         let jsonData = existingData ? JSON.parse(existingData) : { mushroomCards: [] };
-
+    
         const mushroomIndex = jsonData.mushroomCards.findIndex(card => card.name === mushroom.name);
-        
+    
         if (mushroomIndex !== -1) {
-            jsonData.mushroomCards[mushroomIndex].features.is_favorite = true; 
+            // If it exists, remove it from favorites
+            jsonData.mushroomCards.splice(mushroomIndex, 1);
+            setIsFavorite(false);
+        } else {
+            // If it doesn't exist, add it to favorites
+            const newFavorite = { ...mushroom, features: { is_favorite: true } };
+            jsonData.mushroomCards.push(newFavorite);
+            setIsFavorite(true);
         }
-
+    
         localStorage.setItem('myFavoriteData', JSON.stringify(jsonData));
-        setIsFavorite(true);
     };
+    
 
     return (
         <div className="background">

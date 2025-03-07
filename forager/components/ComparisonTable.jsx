@@ -58,10 +58,10 @@ export default function ComparisonTable({ mushroomId }) {
             {/* Container for MushroomCards */}
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                 {/* Render MushroomCard for chosenMushroom */}
-                <MushroomCard mushroom={chosenMushroom} card={true} />
+                <MushroomCard mushroom={chosenMushroom} card={true}/>
                 
                 {/* Render MushroomCard for bestFitMushroom */}
-                <MushroomCard mushroom={bestFitMushroom} card={true} />
+                <MushroomCard mushroom={bestFitMushroom} card={true} baseMushroom={chosenMushroom}/>
             </div>
             
             {/* Table displaying characteristics */}

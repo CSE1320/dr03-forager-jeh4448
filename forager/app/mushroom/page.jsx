@@ -9,6 +9,7 @@ import mushroomDataJson from '../../data/Mushrooms';
 import TopBar from '@/components/TopBar';
 import ToxicMessage from '@/components/ToxicMessage';
 import "../../styles/globals.css"
+import ReportError from '@/components/ReportError';
 
 export default function MushroomPage() {
   const searchParams = useSearchParams(); 
@@ -61,6 +62,7 @@ export default function MushroomPage() {
       <TopBar>
         <h1>Match Results</h1>
       </TopBar>
+      <ReportError/>
       <NavBar />
       {showMessage && <Message />} 
       {showToxicMessage && <div style={{ marginTop: '30px' }}><ToxicMessage /></div>} 

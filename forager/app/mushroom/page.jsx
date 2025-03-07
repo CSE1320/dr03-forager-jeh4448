@@ -9,6 +9,7 @@ import mushroomDataJson from '../../data/Mushrooms';
 import TopBar from '@/components/TopBar';
 import ToxicMessage from '@/components/ToxicMessage';
 import "../../styles/globals.css"
+import MushroomMatch from '@/components/ComparisonPercentage';
 
 export default function MushroomPage() {
   const searchParams = useSearchParams(); 
@@ -80,6 +81,14 @@ export default function MushroomPage() {
               <span style={{ color: 'black' }}>comparison &gt;</span>
             </Link>
             <MushroomCard mushroom={mushroomData} card={false} />
+            <div>
+            <h1>Mushroom Comparison</h1>
+            <MushroomMatch 
+                baseMushroom={mushroomData} 
+                compareMushroom={mushroomData} 
+                card={true} 
+            />
+        </div>
           </div>
         ) : (
           <p>No mushroom data selected.</p>
@@ -94,6 +103,14 @@ export default function MushroomPage() {
               card={true} 
               style={{ width: '134px', height: '169px' }} 
             />
+            <div>
+            <h1>Mushroom Comparison</h1>
+            <MushroomMatch 
+                baseMushroom={mushroomData} 
+                compareMushroom={mushroom} 
+                card={false} 
+            />
+        </div>
           </div>
         ))}
       </div>

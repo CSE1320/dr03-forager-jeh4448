@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import "../styles/globals.css"
+import "../styles/globals.css";
 
-export default function TopBar({ children }) {
+export default function TopBar({ children, href }) {
   return (
     <div className="topbar">
       <div className="buttonContainer">
-        <Link href="/dashboard" passHref>
-          <button className="backButton" aria-label="Go to Dashboard">
+        <Link href={href} passHref>
+          <button className="backButton" aria-label="Go to specified page">
             &lt; 
           </button>
         </Link>

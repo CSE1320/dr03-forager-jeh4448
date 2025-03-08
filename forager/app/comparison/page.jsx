@@ -13,7 +13,7 @@ export default function MushroomComparisonPage() {
     return (
         <div className="page relative" style={{ backgroundColor: '#F2F2F2' }}>
             <NavBar />
-            <TopBar>
+            <TopBar href={"/mushroom"}>
                 <h1>Compare</h1>
             </TopBar>
             <ComparisonTable mushroomIndex={mushroomIndex} /> {/* Pass the mushroom data to ComparisonTable */}

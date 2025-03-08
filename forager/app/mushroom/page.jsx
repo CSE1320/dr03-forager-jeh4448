@@ -61,7 +61,7 @@ export default function MushroomPage() {
 
     return (
         <div className="page relative" style={{ backgroundColor: '#F2F2F2' }}>
-            <TopBar>
+            <TopBar href={"/dashboard"}>
                 <h1>Match Results</h1>
             </TopBar>
             <ReportError/>

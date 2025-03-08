@@ -11,7 +11,7 @@ export default function TopBar({ children, href }) {
           </button>
         </Link>
       </div>
-      <div className="title-font">
+      <div className="centeredItem">
         {children} {/* Render the children here */}
       </div>
     </div>

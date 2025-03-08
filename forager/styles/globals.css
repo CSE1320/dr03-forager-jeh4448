@@ -63,26 +63,21 @@ body, html{
   transform: translateY(-50%); /* Adjust for centering */
 }
 
-/* Assuming you have a class for the topbar, it needs to be defined */
 .topbar {
   position: relative; /* Set position to relative */
-  height: 60px; /* Set a fixed height for the top bar */
+  height: 120px; /* Set a fixed height for the top bar */
   background-color: #579076; /* Background color of the top bar */
-  display: flex; /* Optional: use flexbox for layout */
+  display: flex; /* Use flexbox for layout */
   align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
+  justify-content: space-between; /* Distribute space between items */
   padding: 0 20px; /* Optional: add some horizontal padding */
-  height: 120px; 
   border-bottom-left-radius: 20px; 
   border-bottom-right-radius: 20px; 
 }
 
 .buttonContainer {
-  position: absolute; /* Keep it absolute */
-  top: 50%; /* Center it vertically */
-  left: 20px; /* Adjust as needed */
-  transform: translateY(-50%); /* Adjust for centering */
-  z-index: 10; /* Ensure the button is above other elements */
+  display: flex;
+  align-items: center; /* Vertically center the items */
 }
 
 .backButton {
@@ -93,6 +88,16 @@ body, html{
   cursor: pointer;
   font-size: 16px; /* Adjust font size as needed */
   color: white; /* Set the text color to something visible */
+}
+
+.centeredItem {
+  flex-grow: 1; /* Allow this item to take up available space */
+  text-align: center; /* Center text in this item */
+  color: white; /* Set text color to white */
+  font-weight: bold; /* Make text bold */
+  font-size: xx-large; /* Adjust font size as needed */
+  margin-left: 0px; /* Adjust margin as needed to create space from the button */
+  margin-right: 45px; /* Adjust margin as needed to create space from the edges */
 }
 
 .title-font {

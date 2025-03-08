@@ -15,10 +15,8 @@ const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle, onSele
           src={filterIcon} 
           alt="Filter" 
           style={{
-            left: "340px",
             width: '30px', 
-            height: '30px', 
-            position: "relative"
+            height: '30px'
           }} 
         />
       </button>
@@ -26,7 +24,7 @@ const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle, onSele
       {/* Pill List Overlay */}
       {isPillListVisible && (
         <div style={{
-          position: 'fixed', // Changed from 'absolute' to 'fixed' for better visibility
+          position: 'fixed', // Keep it fixed for visibility
           top: '50px', 
           left: '0',
           right: '0',
@@ -34,31 +32,38 @@ const FilterSettings = ({ isPillListVisible, togglePillList, buttonStyle, onSele
           borderRadius: '8px', 
           padding: '20px', 
           zIndex: 1000, // Ensure it appears above other content
+          display: 'flex',
+          flexDirection: 'column',
         }}>
-          <PillList onSelectionChange={onSelectionChange} /> {/* Pass the selection handler to PillList */}
-          {/* Exit Button */}
-          <button 
-            onClick={() => {
-              togglePillList(); // Ensure the filter settings are hidden when the X button is clicked
-            }} 
-            style={{
-              marginTop: '10px', // Use margin instead of absolute positioning
-              marginLeft: 'auto', // Align to the right
-              display: 'block', // Make it a block element for margin auto to work
-              width: '40px', // Adjust size as necessary
-              height: '40px', // Adjust size as necessary
-              filter: 'brightness(0.5)',
-            }}
-          >
-            <img 
-              src="/ExitX.png" // Use the exit image directly
-              alt="Exit Button" 
+          {/* Exit Button Container */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'flex-end', // Align to the right
+            marginBottom: '10px' // Space below the button
+          }}>
+            <button 
+              onClick={togglePillList} // Close the filter settings when clicked
               style={{
-                width: '100%', // Make the image fill the button
-                height: '100%',
-              }} 
-            />
-          </button>
+                width: '40px', // Adjust size as necessary
+                height: '40px', // Adjust size as necessary
+                filter: 'brightness(0.5)',
+                border: 'none', // Remove default button border
+                background: 'transparent', // Make the background transparent
+                cursor: 'pointer', // Change cursor to pointer
+              }}
+            >
+              <img 
+                src="/ExitX.png" // Use the exit image directly
+                alt="Exit Button" 
+                style={{
+                  width: '100%', // Make the image fill the button
+                  height: '100%',
+                }} 
+              />
+            </button>
+          </div>
+
+          <PillList onSelectionChange={onSelectionChange} /> {/* Pass the selection handler to PillList */}
         </div>
       )}
     </div>

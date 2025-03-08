@@ -69,11 +69,14 @@ export default function DashboardPage() {
       {/* Combined Search Bar and Filter Settings */}
       <div className="search-filter-container" style={{ paddingTop: '160px' }}> {/* Lowered by 20px */}
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <FilterSettings 
           isPillListVisible={isPillListVisible} 
           togglePillList={togglePillList} 
-          onSelectionChange={handlePillSelectionChange} // Pass the handler here
+          onSelectionChange={handlePillSelectionChange} 
         />
+      </div>
+
       </div>
 
       {/* Render selected pills below SearchBar and FilterSettings */}

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"; // Add useCallback here
+import React, { useState, useCallback } from "react"; 
 import Pill from "./Pill";
 import { pills } from "@/data/pill.json";
 import "../styles/globals.css";
@@ -27,21 +27,20 @@ export default function PillList({ onSelectionChange }) {
 
     const [selectedPills, setSelectedPills] = useState(
         pills.reduce((acc, pill) => {
-            acc[pill.pillText] = pill.pillSelected; // Initialize state based on the initial pills data
+            acc[pill.pillText] = pill.pillSelected; 
             return acc;
         }, {})
     );
 
-    // Use debounced function for onSelectionChange
     const debouncedOnSelectionChange = useDebounce(onSelectionChange, 300);
 
     const updatePill = (pillText) => {
         setSelectedPills(prevState => {
             const newState = {
                 ...prevState,
-                [pillText]: !prevState[pillText] // Toggle the selected state
+                [pillText]: !prevState[pillText] 
             };
-            debouncedOnSelectionChange(newState); // Call the debounced function to update selected pills in parent
+            debouncedOnSelectionChange(newState); 
             return newState;
         });
     };
@@ -65,6 +64,7 @@ export default function PillList({ onSelectionChange }) {
                         pillText={pill.pillText}
                         pillFilterType={pill.filterType}
                         pillSelected={selectedPills[pill.pillText]}
+                        isDisabled={pill.pillSelected === "disabled"} // Check if the pill is disabled
                         onPillClick={() => updatePill(pill.pillText)}
                     />
                 ))}
@@ -77,6 +77,7 @@ export default function PillList({ onSelectionChange }) {
                         pillText={pill.pillText}
                         pillFilterType={pill.filterType}
                         pillSelected={selectedPills[pill.pillText]}
+                        isDisabled={pill.pillSelected === "disabled"} // Check if the pill is disabled
                         onPillClick={() => updatePill(pill.pillText)}
                     />
                 ))}
@@ -89,6 +90,7 @@ export default function PillList({ onSelectionChange }) {
                         pillText={pill.pillText}
                         pillFilterType={pill.filterType}
                         pillSelected={selectedPills[pill.pillText]}
+                        isDisabled={pill.pillSelected === "disabled"} // Check if the pill is disabled
                         onPillClick={() => updatePill(pill.pillText)}
                     />
                 ))}
@@ -99,5 +101,5 @@ export default function PillList({ onSelectionChange }) {
 
 // Default props
 PillList.defaultProps = {
-    onSelectionChange: () => {}, // Default to a no-op function
+    onSelectionChange: () => {}, 
 };

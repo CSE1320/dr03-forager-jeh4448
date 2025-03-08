@@ -2,34 +2,33 @@
 'use client';
 
 import React, { useState } from 'react';
+import '../styles/Pill.css'; // Import the CSS file
 
-const Pill = ({ pillText, pillFilterType, pillSelected, onPillClick }) => {
-    const pillStyle = {
-        display: 'inline-block',
-        padding: '8px 12px',
-        height : "29.33px",
-        borderRadius: '16px',
-        margin: '5px',
-        color: pillSelected ? 'white' : '#7C7C7C',
-        backgroundColor: pillSelected ? '#579076' : '#D9D9D9',
-        cursor: 'pointer',
-        transition: 'background-color 0.3s ease',
-        border: pillSelected ? '#579076' : '#D9D9D9',
-        lineHeight: '12.33px',
-        textAlign : 'center'
-    };
-
+const Pill = ({ pillText, pillFilterType, pillSelected, onPillClick, isDisabled }) => {
     const [selected, setSelected] = useState(pillSelected); // Track local selected state
+
     const updatePill = () => {
-        setSelected(!selected); // Toggle selected state
-        if (onPillClick) {
-            onPillClick(); // Call the onClick handler passed from PillList
+        if (!isDisabled) {
+            setSelected(!selected); // Toggle selected state
+            if (onPillClick) {
+                onPillClick(); // Call the onClick handler passed from PillList
+            }
         }
     };
 
+    // Determine the class to apply
+    let pillClass = 'pill ';
+    if (isDisabled) {
+        pillClass += 'disabled';
+    } else if (selected) {
+        pillClass += 'selected';
+    } else {
+        pillClass += 'unselected';
+    }
+
     return (
         <div 
-            style={pillStyle} 
+            className={pillClass} 
             onClick={updatePill}
         >
             {pillText}

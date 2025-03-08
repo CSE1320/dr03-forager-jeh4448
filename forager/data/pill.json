@@ -53,7 +53,7 @@
         {
             "pillText": "Mythical",
             "pillFilterType": "categories",
-            "pillSelected": false
+            "pillSelected": "disabled"
         },
         {
             "pillText": "Good for Broths",

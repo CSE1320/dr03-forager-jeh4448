@@ -27,11 +27,20 @@ const MushroomCard = ({ mushroom, card, baseMushroom }) => {
     
         localStorage.setItem('myFavoriteData', JSON.stringify(jsonData));
     };
-    
+
+    const handleImageDoubleClick = () => {
+        handleFavoriteClick(); // Call the same function to toggle favorite state
+    };
 
     return (
         <div className="background">
-            <img src={image} alt={name} width="290" height="290" />
+            <img 
+                src={image} 
+                alt={name} 
+                width="290" 
+                height="290" 
+                onDoubleClick={handleImageDoubleClick} // Add double-click handler
+            />
             
             {card ? (
                 <>
@@ -69,7 +78,6 @@ const MushroomCard = ({ mushroom, card, baseMushroom }) => {
                         <p>Toxic: {features.is_toxic ? 'Yes' : 'No'}</p>
                     </div>
                     <div className="background message brown rounded-xl text-sm w-full font-medium text-white px-4 py-4" style={{ backgroundColor: '#8E4A49' }}>
-
                         <div className="header flex items-center">
                             <h1 className="uppercase">Fast Facts</h1>
                         </div>

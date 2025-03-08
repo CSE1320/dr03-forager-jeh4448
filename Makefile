@@ -7,10 +7,7 @@ SID = 1002084448
 EMAIL = jeh4448@mavs.uta.edu
 SEMESTER = SPRING2025
 PROJECT=PROJ03
- 
-setup:
-	cd /workspaces/dr03-forager-jeh4448/forager/
-
+video = https://drive.google.com/file/d/1UErkuidBmy4uzw4lKkRbKDXOX5KTnHUP/view?usp=drive_link
 ####### DO NOT EDIT BELOW THIS LINE!!! #########
 author: 
 	@echo $(NAME)

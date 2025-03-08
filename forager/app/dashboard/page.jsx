@@ -81,14 +81,16 @@ export default function DashboardPage() {
 
       {/* Render selected pills below SearchBar and FilterSettings */}
       <div className="selected-pills">
-        {Object.keys(selectedPills).filter(pillText => selectedPills[pillText]).map(pillText => (
-          <Pill 
-            key={pillText} 
-            pillText={pillText} 
-            pillSelected={true} 
-            onPillClick={() => handlePillClick(pillText)} // Ensure it toggles on click
-          />
-        ))}
+        {Object.keys(selectedPills)
+          .filter(pillText => selectedPills[pillText] && selectedPills[pillText] !== "disabled")
+          .map(pillText => (
+            <Pill 
+              key={pillText} 
+              pillText={pillText} 
+              pillSelected={true} 
+              onPillClick={() => handlePillClick(pillText)} // Ensure it toggles on click
+            />
+          ))}
       </div>
 
       <div className="grid grid-cols-3 gap-4 mt-3">

@@ -10,7 +10,12 @@ export default function PhotoSearchPage() {
 
   return (
     <div className={styles.page}>
-      <BackgroundScreen />
+      <Link href={`/mushroom?mushroom=${mushroomDataString}`} passHref>
+          {/* <button className={styles.circleButton} aria-label="Go to mushroom">
+          </button> */}
+          <BackgroundScreen />
+        </Link>
+      
       <div className={styles.buttonContainer}>
         <Link href="/dashboard" passHref>
           <button className={styles.backButton} aria-label="Go to Dashboard">
@@ -18,12 +23,8 @@ export default function PhotoSearchPage() {
           </button>
         </Link>
       </div>
-      <div className={styles.circleContainer}>
-        <Link href={`/mushroom?mushroom=${mushroomDataString}`} passHref>
-          <button className={styles.circleButton} aria-label="Go to mushroom">
-          </button>
-        </Link>
-      </div>
+      {/* <div className={styles.circleContainer}>
+      </div> */}
     </div>
   );
 }

@@ -19,10 +19,13 @@ export default function MushroomPage() {
     const [showToxicMessage, setShowToxicMessage] = useState(false); 
   
     useEffect(() => {
+        localStorage.setItem('hasVisitedMushroomPage', 'false');
         const hasVisited = localStorage.getItem('hasVisitedMushroomPage');
-        if (!hasVisited) {
+        console.log(hasVisited)
+        if (hasVisited === "false") {
             setShowMessage(true);
             localStorage.setItem('hasVisitedMushroomPage', 'true');
+            console.log(showMessage)
         }
     }, []);
 

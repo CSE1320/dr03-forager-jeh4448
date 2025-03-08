@@ -35,12 +35,15 @@ export default function MushroomPage() {
             try {
                 const mushroomDataParsed = JSON.parse(mushroomParam);
                 setMushroomData(mushroomDataParsed);
+                localStorage.setItem('currentMushroom', mushroomDataParsed.name)
             } catch (error) {
                 console.error('Error parsing mushroom data:', error);
                 setMushroomData(null);
             }
         } else {
-            setMushroomData(null);
+            const currMushroomName = localStorage.getItem('currentMushroom')
+            const mushroomDataParsed = mushroomDataJson.mushroomCards.find(mushroom => mushroom.name.toLowerCase() === currMushroomName.toLowerCase());
+            setMushroomData(mushroomDataParsed)
         }
     }, [searchParams]);
   
